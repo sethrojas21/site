@@ -1,4 +1,6 @@
-import { Text, View } from "react-native";
+// app/index.tsx
+import { View, Text } from 'react-native';
+import { colors } from '../theme/color';
 
 export default function Index() {
   return (
@@ -9,7 +11,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Hi My Name is Seth Rojas</Text>
+      <Text style={{color: colors.brand.primary}}>Hi My Name is Seth Rojas</Text>
     </View>
   );
 }
