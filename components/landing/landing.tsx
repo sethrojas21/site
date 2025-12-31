@@ -64,10 +64,9 @@ export default function Landing ({
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
         alignItems: 'center',
-        padding: 50,
+        paddingTop: 160,   // intentional hero spacing
+        paddingHorizontal: 50,
         gap: 10
     },
     preIntro: {

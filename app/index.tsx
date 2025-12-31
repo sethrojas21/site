@@ -52,9 +52,7 @@ const styles = StyleSheet.create({
   container: {},
 
   section: {
-    justifyContent: "center",
     alignItems: "center",
-    paddingHorizontal: 32,
   },
 
   sectionTitle: {
