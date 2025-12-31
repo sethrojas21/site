@@ -1,6 +1,7 @@
 // app/index.tsx
 import { View, Text } from 'react-native';
 import { colors } from '../theme/color';
+import Landing from '@/components/landing/landing';
 
 export default function Index() {
   return (
@@ -11,7 +12,7 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text style={{color: colors.brand.primary}}>Hi My Name is Seth Rojas</Text>
+      <Landing></Landing>
     </View>
   );
 }
