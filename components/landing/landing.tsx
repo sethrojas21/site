@@ -47,6 +47,15 @@ export default function Landing ({
                     style={styles.emailBtn}
                     onPress={() => Linking.openURL("mailto:skrojas@arizona.edu")}
                 />
+                <CircleIconButton
+                    icon={{ pack: "ion", name: "document-outline", color: "grey" }}
+                    accessibilityLabel="Download Resume"
+                    onPress={() => openInNewTab("/resume/swe_resume.pdf")}
+                    style={{
+                        borderColor: "#E9E2FF",
+                        backgroundColor: "#F3F0FF",
+                    }}
+                />
             </View>
 
         </View>
