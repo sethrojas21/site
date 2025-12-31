@@ -15,7 +15,6 @@ export default function Index() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // ensure a re-render after mount so web layout/ScrollView measurements stabilize
     const t = setTimeout(() => setMounted(true), 50);
     return () => clearTimeout(t);
   }, []);
