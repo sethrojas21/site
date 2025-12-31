@@ -1,12 +1,24 @@
 // app/index.tsx
 import { ScrollView, Target } from "@nandorojo/anchor";
-import { StyleSheet, Text, useWindowDimensions, View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
 
 import Header from "@/components/header/Header";
 import Landing from "@/components/landing/landing";
 
 export default function Index() {
-  const { height } = useWindowDimensions();
+  const [height, setHeight] = useState(() => {
+    const h = Dimensions.get("window").height;
+    return typeof h === "number" && h > 0 ? h : 800;
+  });
+
+  useEffect(() => {
+    const handler = ({ window }: { window: { height: number } }) => setHeight(window.height);
+    const sub = Dimensions.addEventListener?.("change", handler);
+    return () => {
+      if (sub?.remove) sub.remove();
+    };
+  }, []);
 
   return (
     <View style={styles.page}>
