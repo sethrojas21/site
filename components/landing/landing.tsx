@@ -1,7 +1,5 @@
 import { colors } from "@/theme/color";
 import { StyleSheet, Text, View } from "react-native";
-import { Dimensions } from 'react-native';
-import * as config from '../../config/config';
 import { FontSize } from "@/theme/font";
 import CircleIconButton from "./social_icon";
 import * as Linking from "expo-linking";
@@ -49,16 +47,11 @@ export default function Landing ({
                     style={styles.emailBtn}
                     onPress={() => Linking.openURL("mailto:skrojas@arizona.edu")}
                 />
-          </View>
-
+            </View>
 
         </View>
     )
 }
-
-
-const { width, height } = Dimensions.get('window');
-const scale = width / 375; // Base width (e.g., iPhone 11)
 
 const styles = StyleSheet.create({
     container: {
