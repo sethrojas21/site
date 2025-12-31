@@ -1,15 +1,17 @@
 // theme/font.ts
-import { Dimensions } from "react-native";
+import { useWindowDimensions } from "react-native";
 
-const { width } = Dimensions.get("window");
-const scale = width / 375;
+export function useFontSize() {
+  const { width } = useWindowDimensions();
+  const scale = width && width > 0 ? width / 375 : 1;
 
-export const FontSize = {
-  xxs: Math.round(8 * scale),
-  xs: Math.round(12 * scale),
-  sm: Math.round(14 * scale),
-  md: Math.round(16 * scale),
-  lg: Math.round(18 * scale),
-  xl: Math.round(22 * scale),
-  xxl: Math.round(28 * scale),
-};
+  return {
+    xxs: Math.max(8, Math.round(8 * scale)),
+    xs: Math.max(12, Math.round(12 * scale)),
+    sm: Math.max(14, Math.round(14 * scale)),
+    md: Math.max(16, Math.round(16 * scale)),
+    lg: Math.max(18, Math.round(18 * scale)),
+    xl: Math.max(22, Math.round(22 * scale)),
+    xxl: Math.max(28, Math.round(28 * scale)),
+  };
+}

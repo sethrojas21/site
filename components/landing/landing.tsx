@@ -1,8 +1,8 @@
 import { colors } from "@/theme/color";
-import { StyleSheet, Text, View } from "react-native";
-import { FontSize } from "@/theme/font";
-import CircleIconButton from "./social_icon";
+import { useFontSize } from "@/theme/font";
 import * as Linking from "expo-linking";
+import { StyleSheet, Text, View } from "react-native";
+import CircleIconButton from "./social_icon";
 
 const openInNewTab = (url: string) => {
   if (typeof window !== 'undefined' && window.open) {
@@ -18,6 +18,48 @@ export default function Landing ({
     name = "Seth Rojas",
     subtitle = "Software Developer & Data Scientist"
 }: Props) {
+
+    const FontSize = useFontSize();
+
+    const styles = StyleSheet.create({
+        container: {
+            alignItems: 'center',
+            paddingTop: 160,   // intentional hero spacing
+            paddingHorizontal: 50,
+            gap: 10
+        },
+        preIntro: {
+            color: colors.text.secondary,
+            fontSize: FontSize.xxs
+        },
+        fullName: {
+            color: colors.brand.primary,
+            fontSize: FontSize.xxl,
+            fontWeight: 'bold'
+        },
+        devName: {
+            color: colors.text.primary,
+            fontSize: FontSize.xxs,
+            textDecorationLine: 'underline'
+        },
+        row: {
+            flexDirection: "row",
+            gap: 16,
+            marginVertical: 8,
+        },
+        githubBtn: {
+            borderColor: "#E9E2FF",
+            backgroundColor: "#F3F0FF",
+        },
+        linkedinBtn: {
+            borderColor: "#D6EAFB",
+            backgroundColor: "#E6F2FB",
+        },
+        emailBtn: {
+            borderColor: "#FFE6E4",
+            backgroundColor: "#FFF1F0",
+        },
+    });
 
     return (
         <View style={styles.container}>
@@ -62,46 +104,7 @@ export default function Landing ({
     )
 }
 
-const styles = StyleSheet.create({
-    container: {
-        alignItems: 'center',
-        paddingTop: 160,   // intentional hero spacing
-        paddingHorizontal: 50,
-        gap: 10
-    },
-    preIntro: {
-        color: colors.text.secondary,
-        fontSize: FontSize.xxs
-    },
-    fullName: {
-        color: colors.brand.primary,
-        fontSize: FontSize.xxl,
-        fontWeight: 'bold'
-    },
-    devName: {
-        color: colors.text.primary,
-        fontSize: FontSize.xxs,
-        textDecorationLine: 'underline'
-    },
-      row: {
-        flexDirection: "row",
-        gap: 16,
-        marginVertical: 8,
-    },
-    githubBtn: {
-        borderColor: "#E9E2FF",
-        backgroundColor: "#F3F0FF",
-    },
-    linkedinBtn: {
-        borderColor: "#D6EAFB",
-        backgroundColor: "#E6F2FB",
-    },
-    emailBtn: {
-        borderColor: "#FFE6E4",
-        backgroundColor: "#FFF1F0",
-    },
-    
-})
+// styles must be created inside the component to access FontSize
 
   // Type declaration for window.open (for TypeScript)
 declare global {
