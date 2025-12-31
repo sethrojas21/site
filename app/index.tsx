@@ -12,6 +12,14 @@ export default function Index() {
     return typeof h === "number" && h > 0 ? h : 800;
   });
 
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // ensure a re-render after mount so web layout/ScrollView measurements stabilize
+    const t = setTimeout(() => setMounted(true), 50);
+    return () => clearTimeout(t);
+  }, []);
+
   useEffect(() => {
     const handler = ({ window }: { window: { height: number } }) => setHeight(window.height);
     const sub = Dimensions.addEventListener?.("change", handler);
@@ -23,7 +31,7 @@ export default function Index() {
   return (
     <View style={styles.page}>
 
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView key={mounted ? "mounted" : "boot"} contentContainerStyle={styles.container}>
         <View style={{ position: "sticky", top: 0, zIndex: 10, backgroundColor: "white" }}>
           <Header />
         </View>
