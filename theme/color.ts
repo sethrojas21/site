@@ -2,6 +2,7 @@
 export const colors = {
   brand: {
     primary: '#F15025',
+    secondary: 'teal'
   },
   background: {
     default: '#FFFFFF',

@@ -1,16 +1,9 @@
 import { colors } from "@/theme/color";
 import { useFontSize } from "@/theme/font";
-import * as Linking from "expo-linking";
-import { StyleSheet, Text, View } from "react-native";
+import { Linking, StyleSheet, Text, View } from "react-native";
 import CircleIconButton from "./social_icon";
-
-const openInNewTab = (url: string) => {
-  if (typeof window !== 'undefined' && window.open) {
-    window.open(url, '_blank', 'noopener,noreferrer');
-  } else {
-    Linking.openURL(url);
-  }
-};
+import { openInNewTab } from "@/utils/linking";
+import { GITHUB_LINK, LINKEDIN_LINK } from "@/config/config";
 
 type Props = { name?: string; subtitle?: string };
 
@@ -75,13 +68,13 @@ export default function Landing ({
                     icon={{ pack: "ion", name: "logo-github", color: "#6F42C1" }}
                     accessibilityLabel="Open GitHub"
                     style={styles.githubBtn}
-                    onPress={() => openInNewTab("https://github.com/sethrojas21")}
+                    onPress={() => openInNewTab(GITHUB_LINK)}
                 />
                 <CircleIconButton
                     icon={{ pack: "ion", name: "logo-linkedin", color: "#0A66C2" }}
                     accessibilityLabel="Open LinkedIn"
                     style={styles.linkedinBtn}
-                    onPress={() => openInNewTab("https://www.linkedin.com/in/skrojas")}
+                    onPress={() => openInNewTab(LINKEDIN_LINK)}
                 />
                 <CircleIconButton
                     icon={{ pack: "ion", name: "mail-outline", color: "#EA4335" }}

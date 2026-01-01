@@ -5,6 +5,7 @@ import { Dimensions, StyleSheet, Text, View } from "react-native";
 
 import Header from "@/components/header/Header";
 import Landing from "@/components/landing/landing";
+import Projects from "@/components/projects/Projects";
 
 export default function Index() {
   const [height, setHeight] = useState(() => {
@@ -50,6 +51,7 @@ export default function Index() {
         <Target name="projects">
           <View style={[styles.section, { minHeight: height }]}>
             <Text style={styles.sectionTitle}>Projects</Text>
+            <Projects />
           </View>
         </Target>
 
