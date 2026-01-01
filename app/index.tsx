@@ -39,7 +39,6 @@ export default function Index() {
 
         <Target name="landing">
           <View style={[styles.section, { minHeight: height }]}>
-            <BasketballAnimation />
             <Landing />
           </View>
         </Target>
