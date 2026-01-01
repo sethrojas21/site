@@ -15,7 +15,7 @@ type Props = {
 export default function ProjectCard({ 
     project,
     width = 275, 
-    height = 225,
+    height = 250,
 }: Props) {
     return (
         <View style={[styles.container, { width, height }]}>
@@ -23,7 +23,7 @@ export default function ProjectCard({
                 <Text style={[styles.text, styles.name]}>{project.name}</Text>
                 <Text style={[styles.text, styles.description]}>{project.description}</Text>
 
-                <View style={{ flexDirection: "row", gap: 8 }}>
+                <View style={{ flexDirection: "row", flexWrap: "wrap", gap: 8 }}>
                     {project.tech.map((item) => (
                         <TechCard key={item} tech={item} />
                     ))}
