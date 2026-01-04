@@ -6,7 +6,7 @@ import { Dimensions, StyleSheet, Text, View } from "react-native";
 import Header from "@/components/header/Header";
 import Landing from "@/components/landing/landing";
 import Projects from "@/components/projects/Projects";
-import BasketballAnimation from "@/components/landing/BasketballAnimation";
+import About from "@/components/about/About";
 
 export default function Index() {
   const [height, setHeight] = useState(() => {
@@ -46,6 +46,7 @@ export default function Index() {
         <Target name="about">
           <View style={[styles.section, { minHeight: height }]}>
             <Text style={styles.sectionTitle}>About</Text>
+            <About />
           </View>
         </Target>
 
@@ -56,11 +57,18 @@ export default function Index() {
           </View>
         </Target>
 
+        <Target name="experience">
+          <View style={[styles.section, { minHeight: height }]}>
+            <Text style={styles.sectionTitle}>Experience</Text>
+          </View>
+        </Target>
+
         <Target name="contact">
           <View style={[styles.section, { minHeight: height }]}>
             <Text style={styles.sectionTitle}>Contact</Text>
           </View>
         </Target>
+        
       </ScrollView>
     </View>
   );
