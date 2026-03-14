@@ -11,5 +11,5 @@ export const FREE_TIME = [
 	"Eating food",
 	"Blasting music",
 	"Hanging out with friends",
-	"Watching college sports, especially my Arizona Wildcats (Bear down!!!)",
+	"Watching college sports, especially my Arizona Wildcats",
 ];
