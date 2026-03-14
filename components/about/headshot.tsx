@@ -1,3 +1,4 @@
+import { colors } from "@/theme/color";
 import { Image, ImageSourcePropType, StyleSheet, View } from "react-native";
 
 type Props = { imagePath: ImageSourcePropType, size: number };
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
   container: {
     // Optional: add a border around the image
     borderWidth: 2,
-    borderColor: '#ccc',
+    borderColor: colors.brand.primary,
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden', // Ensures everything inside the container stays within the border radius
