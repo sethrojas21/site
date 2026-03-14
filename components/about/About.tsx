@@ -7,11 +7,12 @@ export default function About() {
     const { width } = useWindowDimensions();
     const isWideScreen = width >= 1100;
     const isDesktop = width >= 900;
+    const isVertical = !isDesktop;
     const splitIndex = Math.ceil(FREE_TIME.length / 2);
     const freeTimeColumns = [FREE_TIME.slice(0, splitIndex), FREE_TIME.slice(splitIndex)];
 
     return (
-        <View style={styles.sectionOuter}>
+        <View style={[styles.sectionOuter, isVertical && styles.sectionOuterVertical]}>
             <View style={[styles.contentWrap, isDesktop ? styles.contentWrapDesktop : styles.contentWrapMobile]}>
                 <View style={[styles.photoWrap, isDesktop && styles.photoWrapDesktop]}>
                 <CircularHeadshot 
@@ -20,16 +21,16 @@ export default function About() {
                 />
                 </View>
 
-                <View style={[styles.textColumn, isDesktop && styles.textColumnDesktop]}>
-                <Text style={styles.descriptionText}>
+                <View style={[styles.textColumn, isDesktop && styles.textColumnDesktop, isVertical && styles.textColumnVertical]}>
+                <Text style={[styles.descriptionText, isVertical && styles.centeredText]}>
                     {ABOUT_INTRO}
                 </Text>
 
-                    <View style={styles.divider} />
+                    <View style={[styles.divider, isVertical && styles.dividerVertical]} />
 
-                <Text style={styles.freeTimeHeaderText}>In my free time, I enjoy:</Text>
+                <Text style={[styles.freeTimeHeaderText, isVertical && styles.centeredText]}>In my free time, I enjoy:</Text>
 
-                <View style={[styles.listContainer, isWideScreen && styles.listContainerWide]}>
+                <View style={[styles.listContainer, isWideScreen && styles.listContainerWide, isVertical && styles.listContainerVertical]}>
                     {freeTimeColumns.map((columnItems, columnIndex) => (
                         <View
                             key={`column-${columnIndex}`}
@@ -59,6 +60,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 24,
         paddingVertical: 20,
     },
+    sectionOuterVertical: {
+        paddingHorizontal: 34,
+    },
     contentWrap: {
         width: '100%',
     },
@@ -83,6 +87,12 @@ const styles = StyleSheet.create({
         flex: 1,
         marginLeft: 44,
     },
+    textColumnVertical: {
+        alignItems: 'center',
+    },
+    centeredText: {
+        textAlign: 'center',
+    },
     descriptionText: {
         fontSize: 20,
         lineHeight: 31,
@@ -97,6 +107,9 @@ const styles = StyleSheet.create({
         marginBottom: 16,
         backgroundColor: colors.brand.primary,
     },
+    dividerVertical: {
+        alignSelf: 'center',
+    },
     freeTimeHeaderText: {
         fontSize: 24,
         fontWeight: '600',
@@ -105,6 +118,10 @@ const styles = StyleSheet.create({
     },
     listContainer: {
         gap: 8,
+    },
+    listContainerVertical: {
+        width: '100%',
+        maxWidth: 460,
     },
     listContainerWide: {
         flexDirection: 'row',
