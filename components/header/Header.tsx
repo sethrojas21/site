@@ -19,13 +19,13 @@ export default function Header() {
 
         <View style={styles.nav}>
           {links.map((link) => (
-            <ScrollTo key={link.target} target={link.target}>
+            <ScrollTo key={link.target} target={link.target} options={{ offset: -100 }}>
               <Text style={styles.link}>{link.label}</Text>
             </ScrollTo>
           ))}
         </View>
 
-        <ScrollTo target="projects">
+        <ScrollTo target="projects" options={{ offset: -100 }}>
           <View style={styles.cta}>
             <Text style={styles.ctaText}>See Work</Text>
           </View>

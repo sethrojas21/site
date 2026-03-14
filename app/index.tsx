@@ -3,10 +3,10 @@ import { ScrollView, Target } from "@nandorojo/anchor";
 import React, { useEffect, useState } from "react";
 import { Dimensions, StyleSheet, Text, View } from "react-native";
 
+import About from "@/components/about/About";
 import Header from "@/components/header/Header";
 import Landing from "@/components/landing/landing";
 import Projects from "@/components/projects/Projects";
-import BasketballAnimation from "@/components/landing/BasketballAnimation";
 
 export default function Index() {
   const [height, setHeight] = useState(() => {
@@ -46,6 +46,9 @@ export default function Index() {
         <Target name="about">
           <View style={[styles.section, { minHeight: height }]}>
             <Text style={styles.sectionTitle}>About</Text>
+            <View style={styles.sectionBody}>
+              <About />
+            </View>
           </View>
         </Target>
 
@@ -56,11 +59,18 @@ export default function Index() {
           </View>
         </Target>
 
+        <Target name="experience">
+          <View style={[styles.section, { minHeight: height }]}>
+            <Text style={styles.sectionTitle}>Experience</Text>
+          </View>
+        </Target>
+
         <Target name="contact">
           <View style={[styles.section, { minHeight: height }]}>
             <Text style={styles.sectionTitle}>Contact</Text>
           </View>
         </Target>
+        
       </ScrollView>
     </View>
   );
@@ -74,7 +84,15 @@ const styles = StyleSheet.create({
   container: {},
 
   section: {
+    width: "100%",
     alignItems: "center",
+  },
+
+  sectionBody: {
+    flex: 1,                 // take remaining section height
+    width: "100%",
+    justifyContent: "center", // vertical center
+    alignItems: "center",     // horizontal center
   },
 
   sectionTitle: {

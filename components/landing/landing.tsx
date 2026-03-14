@@ -1,9 +1,10 @@
+import { GITHUB_LINK, LINKEDIN_LINK } from "@/config/config";
 import { colors } from "@/theme/color";
 import { useFontSize } from "@/theme/font";
-import { Linking, StyleSheet, Text, View } from "react-native";
-import CircleIconButton from "./social_icon";
 import { openInNewTab } from "@/utils/linking";
-import { GITHUB_LINK, LINKEDIN_LINK } from "@/config/config";
+import { Linking, Pressable, StyleSheet, Text, View } from "react-native";
+import CircleIconButton from "./social_icon";
+import { ScrollTo } from "@nandorojo/anchor";
 
 type Props = { name?: string; subtitle?: string };
 
@@ -93,9 +94,26 @@ export default function Landing ({
                 />
             </View>
 
+            <ScrollTo target="about">
+                <CircleIconButton
+                    icon={{ pack: "ion", name: "chevron-down-outline", color: colors.text.secondary }}
+                    accessibilityLabel="Explore More"
+                    style={{
+                        borderColor: "#E9E2FF",
+                        backgroundColor: "#F3F0FF",
+                    }}
+                />
+            </ScrollTo>
+
         </View>
     )
 }
+
+const styles = StyleSheet.create({
+    exploreMoreBtn : {
+
+    }
+})
 
 // styles must be created inside the component to access FontSize
 
