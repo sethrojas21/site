@@ -6,7 +6,7 @@ export default function About() {
     return (
         <View>
             <CircularHeadshot 
-            imagePath={require("../../assets/images/headshot.jpg")} 
+            imagePath={require("../../assets/images/headshot.jpeg")} 
             size={300}/>
         </View>
     )
