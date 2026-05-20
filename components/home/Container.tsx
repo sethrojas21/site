@@ -1,19 +1,22 @@
-import { Slot } from "expo-router";
-import Sidebar from "@/components/sidebar/Sidebar";
-import { View, StyleSheet } from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
+import Sidebar from "../sidebar/Sidebar";
+import About from "./About";
 
-export default function RootLayout() {
+export default function Container() {
   return (
     <View style={styles.container}>
+
       <View style={styles.leftColumn}>
-        <Sidebar />
+        <Sidebar></Sidebar>
       </View>
 
       <View style={styles.rightColumn}>
-        <Slot />
+        <ScrollView>
+          <About></About>
+        </ScrollView>
       </View>
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
@@ -22,6 +25,7 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 70,
     paddingTop: 70,
+    justifyContent: "center",
     gap : 20,
   },
   leftColumn: {

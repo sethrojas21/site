@@ -45,3 +45,13 @@ export function useFontSize() {
     xxl: Math.max(28, Math.round(28 * scale)),
   };
 }
+
+// constants/theme.ts
+export const FONT_SIZE = {
+  xs: 12,
+  sm: 14,
+  md: 16,
+  lg: 20,
+  xl: 28,
+  xxl: 36,
+} as const;
