@@ -3,7 +3,7 @@ import { FONT_SIZE } from "@/theme/font";
 import { Href, Link } from "expo-router";
 import { StyleSheet, View } from "react-native";
 
-type SidebarLinkProps = {
+export type SidebarLinkProps = {
   label: string;
   href: Href;
   isActive?: boolean;
@@ -17,7 +17,7 @@ export default function SidebarLink({ label, href, isActive }: SidebarLinkProps)
         styles.both,
         isActive ? styles.active : styles.inactive
       ]}
-    >
+      >
       {label}
     </Link>
   )
