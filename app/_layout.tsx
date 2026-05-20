@@ -25,15 +25,11 @@ const styles = StyleSheet.create({
     gap : 20,
   },
   leftColumn: {
-    borderWidth: 1,
     padding: 10,
     paddingLeft: 5, 
-    borderColor: "black"
   },
   rightColumn: {
     flex: 1,
-    borderWidth: 1,
-    borderColor: "black",
     padding: 10
   },
 });

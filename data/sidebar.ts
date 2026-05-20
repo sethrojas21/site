@@ -20,6 +20,6 @@ export const SIDEBAR_LINKS: SidebarLinkProps[] = [
   },
   {
     label: "Contact",
-    href: "/about",
+    href: "/contact",
   },
 ];

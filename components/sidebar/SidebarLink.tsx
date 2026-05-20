@@ -10,6 +10,7 @@ export type SidebarLinkProps = {
 };
 
 export default function SidebarLink({ label, href, isActive }: SidebarLinkProps) {
+  // TODO: make Link have a hover style
   return (
     <Link 
       href={href}

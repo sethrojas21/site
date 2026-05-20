@@ -5,7 +5,7 @@ import { StyleSheet } from "react-native";
 import Container from "@/components/home/Container";
 import About from "@/components/home/About";
 
-export default function Index() {
+export default function Index() { 
   return <About />
 }
 

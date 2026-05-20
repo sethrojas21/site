@@ -1,9 +1,9 @@
 import { FULL_NAME } from "@/config/config"
 import { StyleSheet, Text, View } from "react-native"
 import { FONT_SIZE } from "@/theme/font"
-import SidebarLink from "./SidebarLink"
 import { SIDEBAR_LINKS } from "@/data/sidebar"
 import { usePathname } from "expo-router"
+import AccentLink from "../AccentLink"
 
 export default function Sidebar() {
   const pathname = usePathname();
@@ -14,13 +14,21 @@ export default function Sidebar() {
 
     <View style={styles.linksContainer}>
       {SIDEBAR_LINKS.map((sidebarLink) => (
-          <SidebarLink 
+          <AccentLink 
             key={sidebarLink.label}
             label={sidebarLink.label}
             href={sidebarLink.href}
+            external={false}
             isActive={pathname === sidebarLink.href}
           />
       ))}
+
+      <AccentLink 
+        label="Resume"
+        href={"/resume/swe_resume.pdf"}
+        external={true}
+        isActive={false}
+      />
     </View>
   </View>
   )
@@ -36,6 +44,6 @@ const styles = StyleSheet.create({
   },
   linksContainer: {
     marginTop: 10,
-    gap: 10
+    gap: 5
   }
 })

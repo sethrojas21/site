@@ -1,8 +1,8 @@
-export const ABOUT_INTRO = `
-I'm Seth Rojas and I am sophomore Computer Science student at the University of Arizona!
+export const ABOUT_INTRO = `Hello! I'm Seth Rojas, a 3rd Year Computer Science Major at the University of Arizona.
 
-I'm a passionate software engineer and data scientist who loves building thoughtful, data-driven solutions that turn ideas into real products. From backend systems to analytics and machine learning, I’m driven by solving meaningful problems and constantly learning how technology can create impact.
+I currently work at the University of Arizona Athletics as a Sports Data Scientist, recently supporting the football team with player valuation. 
 
+This summer, I am interning at IBM as Software Development Intern on the CTO's team in Tucson, Arizona.
 `;
 
 export const FREE_TIME = [
