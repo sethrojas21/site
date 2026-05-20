@@ -1,8 +1,22 @@
 import { Slot } from "expo-router";
 import Sidebar from "@/components/sidebar/Sidebar";
 import { View, StyleSheet } from "react-native";
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_700Bold,
+} from "@expo-google-fonts/inter";
 
 export default function RootLayout() {
+  const [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.leftColumn}>

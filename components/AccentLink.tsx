@@ -53,11 +53,12 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: FONT_SIZE.md,
+    fontFamily: "Inter_400Regular",
     lineHeight: 22,
     color: colors.text.primary,
   },
   activeText: {
-    fontWeight: "700",
+    fontFamily: "Inter_700Bold",
   },
   accentLine: {
     height: 2,

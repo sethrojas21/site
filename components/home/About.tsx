@@ -40,5 +40,6 @@ const styles = StyleSheet.create({
   },
   blurb: {
     fontSize: FONT_SIZE.md,
+    fontFamily: "Inter_400Regular"
   },
 });
