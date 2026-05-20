@@ -40,6 +40,7 @@ const styles = StyleSheet.create({
   },
   nameHeader: {
     fontSize: FONT_SIZE.xl,
+    fontFamily: "Inter_400Regular",
     color: "black"
   },
   linksContainer: {

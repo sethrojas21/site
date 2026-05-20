@@ -2,6 +2,8 @@ import { ABOUT_INTRO } from "@/content/about";
 import { FONT_SIZE } from "@/theme/font";
 import { ScrollView } from "@nandorojo/anchor";
 import { View, Image, StyleSheet, Text } from "react-native";
+import { InlineAccentLink } from "../AccentLink";
+import { EMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK } from "@/config/config";
 
 export default function About() {
   return (
@@ -17,7 +19,8 @@ export default function About() {
         </View>
 
         <Text style={styles.blurb}>
-          You can reach me GitHub, LinkedIn, Email
+          You can reach me on <InlineAccentLink text="LinkedIn" href={LINKEDIN_LINK} />, <InlineAccentLink text="GitHub" href={GITHUB_LINK} />, 
+          and <InlineAccentLink text="Email" href={EMAIL_LINK} />
         </Text>
       </ScrollView>
     </View>
@@ -30,7 +33,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 200,
-    height: 200,
+    height: 250,
     borderRadius: 10,
   },
   hstack: {
@@ -40,6 +43,7 @@ const styles = StyleSheet.create({
   },
   blurb: {
     fontSize: FONT_SIZE.md,
+    lineHeight: 24,
     fontFamily: "Inter_400Regular"
   },
 });

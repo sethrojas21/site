@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     flex: 1,
-    paddingHorizontal: 70,
+    paddingLeft: 70,
     paddingTop: 70,
     gap : 20,
   },
