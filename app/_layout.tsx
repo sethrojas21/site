@@ -8,7 +8,7 @@ import {
 } from "@expo-google-fonts/inter";
 
 const maxPageWidth = 900;
-const minGapWidth = 625;
+const minGapWidth = 700;
 const maxColumnGap = 50;
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
