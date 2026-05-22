@@ -1,4 +1,5 @@
 import { Slot } from "expo-router";
+import { Text } from "react-native";
 import Sidebar from "@/components/sidebar/Sidebar";
 import { View, StyleSheet, ScrollView, useWindowDimensions } from "react-native";
 import {
@@ -6,9 +7,11 @@ import {
   Inter_400Regular,
   Inter_700Bold,
 } from "@expo-google-fonts/inter";
+import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
+import { colors } from "@/theme/color";
 
 const maxPageWidth = 900;
-const minGapWidth = 700;
+const minGapWidth = 730;
 const maxColumnGap = 50;
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({
@@ -18,7 +21,6 @@ export default function RootLayout() {
 
   
   const { width } = useWindowDimensions();
-
  function clamp(value: number, min: number, max: number) {
     return Math.max(min, Math.min(max, value));
   }
@@ -32,20 +34,26 @@ export default function RootLayout() {
 
   return (
     <View style={styles.page}>
-      <ScrollView style={styles.scrollView}>
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.scrollContent}
+      >
+        <View style={[
+          styles.container,
+          {gap: columnGap}
+          ]}>
+          <View style={styles.leftColumn}>
+            <Sidebar />
+          </View>
 
-      <View style={[
-        styles.container,
-        {gap: columnGap}
-        ]}>
-        <View style={styles.leftColumn}>
-          <Sidebar />
+          <View style={styles.rightColumn}>
+            <Slot />
+          </View>
         </View>
 
-        <View style={styles.rightColumn}>
-          <Slot />
-        </View>
-      </View>
+        <Text style={styles.copyrightText}>
+          Copyright © 2026 Seth Rojas. All rights reserved.
+        </Text>
       </ScrollView>
     </View>
   )
@@ -78,5 +86,16 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1
+  },
+  scrollContent: {
+    flexGrow: 1,
+    alignItems: "center",
+  },
+  copyrightText: {
+    marginTop: "auto",
+    paddingVertical: 40,
+    fontFamily: FONT_FAMILY.regular,
+    fontSize: FONT_SIZE.md,
+    color: 'grey',
   }
 });

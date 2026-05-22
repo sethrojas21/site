@@ -1,5 +1,5 @@
 import { ABOUT_INTRO } from "@/content/about";
-import { FONT_SIZE } from "@/theme/font";
+import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
 import { ScrollView } from "@nandorojo/anchor";
 import { View, Image, StyleSheet, Text } from "react-native";
 import { InlineAccentLink } from "../AccentLink";
@@ -20,10 +20,15 @@ export default function About() {
           <Text style={styles.blurb}>{ABOUT_INTRO}</Text>
         </View>
 
-        <Text style={styles.blurb}>
-          You can reach me on <InlineAccentLink text="LinkedIn" href={LINKEDIN_LINK} />, <InlineAccentLink text="GitHub" href={GITHUB_LINK} />, 
-          and <InlineAccentLink text="Email" href={EMAIL_LINK} />
-        </Text>
+        <View style={styles.contactContainer}>
+          <Text style={{fontFamily: FONT_FAMILY.bold, fontSize: FONT_SIZE.xl}}>
+            Contact
+          </Text>
+          <Text style={styles.blurb}>
+            You can reach me on <InlineAccentLink text="LinkedIn" href={LINKEDIN_LINK} />, <InlineAccentLink text="GitHub" href={GITHUB_LINK} />, 
+            and <InlineAccentLink text="Email" href={EMAIL_LINK} />
+          </Text>
+        </View>
 
       </ScrollView>
     </View>
@@ -43,6 +48,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "flex-start",
     gap: 20,
+  },
+  contactContainer: {
+    paddingTop: 20
   },
   blurb: {
     fontSize: FONT_SIZE.md,
