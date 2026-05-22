@@ -1,4 +1,5 @@
 import ExperienceCard from "@/components/experience/ExperienceCard";
+import { experiences } from "@/data/experience";
 import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
 import { globalStyles } from "@/theme/styles";
 import { Text, View } from "react-native";
@@ -11,15 +12,17 @@ export default function Experience() {
         Experience
       </Text>
 
-      <View style={{paddingTop: 20}}>
-        <ExperienceCard 
-          position={"Software Development Intern"} 
-          company={"IBM Storage"} 
-          startDate={2026} 
-          endDate={null} 
-          summary={"Built an agentic AI infrastructure key-value inference cache flow and presented to IBM Fellows and Senior VPs"} 
-          skills={[""]}
-        />
+      <View style={{paddingTop: 25, gap: 25}}>
+        {experiences.map((experience) => (
+          <ExperienceCard
+            key={`${experience.company}-${experience.position}`}
+            position={experience.position}
+            company={experience.company}
+            dates={experience.dates}
+            summary={experience.summary}
+            skills={experience.skills}
+          />
+        ))}
       </View>
 
     </View>

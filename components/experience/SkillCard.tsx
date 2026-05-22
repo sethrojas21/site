@@ -1,9 +1,10 @@
 import { colors } from "@/theme/color"
+import { ExperienceSkill } from "@/data/experience"
 import { FONT_FAMILY, FONT_SIZE } from "@/theme/font"
 import { Text, StyleSheet, View } from "react-native"
 
 type SkillCardProps = {
-  skill: string
+  skill: ExperienceSkill
 }
 
 export default function SkillCard(

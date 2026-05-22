@@ -3,26 +3,19 @@ import { Text, StyleSheet, View } from "react-native";
 import AppText from "../AppText";
 import { colors } from "@/theme/color";
 import SkillCard from "./SkillCard";
+import { ExperienceSkill } from "@/data/experience";
 
 type ExpereinceCardProps = {
   position: string
   company: string
-  startDate: number
-  endDate: number | null // if null then present
+  dates: string
   summary: string
-  skills: [string]
+  skills: ExperienceSkill[]
 };
 
 export default function ExperienceCard(
-  {position, company, startDate, endDate, summary, skills} : ExpereinceCardProps
+  {position, company, dates, summary, skills} : ExpereinceCardProps
 ) {
-
-  let endDateStr;
-  if (endDate == null) {
-    endDateStr = "Present"
-  } else {
-    endDateStr = endDate.toString();
-  }
   return (
     <View style={styles.cardContainer}>
 
@@ -35,7 +28,7 @@ export default function ExperienceCard(
           </AppText>
 
           <AppText style={styles.dateText}>
-            {startDate}-{endDateStr}
+            {dates}
           </AppText>
         </View>
 
@@ -52,18 +45,12 @@ export default function ExperienceCard(
         </AppText>
 
         <View style={styles.skillsRow}>
-          <SkillCard
-            skill="Python"
-          />
-          <SkillCard
-            skill="Agentic AI"
-          />
-          <SkillCard
-            skill="PostgreSQL"
-          />
-          <SkillCard
-            skill="Python"
-          />
+          {skills.map((skill) => (
+            <SkillCard
+              key={skill}
+              skill={skill}
+            />
+          ))}
         </View>
       </View>
     </View>
@@ -75,7 +62,7 @@ const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
     flexDirection: 'column',
-    width: 450,
+    width: 600,
   },
   expHeadlineContainer: {
     borderLeftWidth: 5,
