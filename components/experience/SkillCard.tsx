@@ -1,6 +1,5 @@
 import { colors } from "@/theme/color"
-import { FONT_SIZE } from "@/theme/font"
-import { globalStyles } from "@/theme/styles"
+import { FONT_FAMILY, FONT_SIZE } from "@/theme/font"
 import { Text, StyleSheet, View } from "react-native"
 
 type SkillCardProps = {
@@ -21,11 +20,18 @@ export default function SkillCard(
 
 const styles = StyleSheet.create({
   container: {
-    borderWidth: 1.5,
-    padding: 1.5
+    alignSelf: "flex-start",
+    borderWidth: 1,
+    borderColor: "#F7B59D",
+    backgroundColor: "#FFF3EF",
+    borderRadius: 999,
+    paddingHorizontal: 8,
+    paddingVertical: 3,
   },
   text: {
-    fontSize: FONT_SIZE.md,
-    color: colors.brand.primary
+    fontSize: FONT_SIZE.sm,
+    fontFamily: FONT_FAMILY.regular,
+    color: colors.brand.primary,
+    lineHeight: 18,
   }
 })

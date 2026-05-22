@@ -51,7 +51,7 @@ export default function ExperienceCard(
           {summary}
         </AppText>
 
-        <View style={{flexDirection: 'row', gap: 5, paddingTop: 10}}>
+        <View style={styles.skillsRow}>
           <SkillCard
             skill="Python"
           />
@@ -112,5 +112,11 @@ const styles = StyleSheet.create({
   },
   summaryText: {
     fontSize: FONT_SIZE.md
+  },
+  skillsRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 6,
+    paddingTop: 10,
   }
 })
