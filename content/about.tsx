@@ -2,19 +2,20 @@ import { InlineAccentLink } from "@/components/AccentLink";
 
 export const ABOUT_INTRO = (
   <>
-    Hello! I'm Seth Rojas, a 3rd Year{" "}
+    Hello! I'm Seth Rojas, a 3rd Year Computer Science student at the 
+		{" "}
     <InlineAccentLink
-      text="Computer Science"
+      text="University of Arizona"
       href="https://www.cs.arizona.edu"
     />
-    {" "}student at the University of Arizona.
+    {" "}
     {"\n\n"}
-    I currently work at the{" "}
+    I currently work at the University of Arizona Athletics as a 
+		{" "}
     <InlineAccentLink
-      text="University of Arizona Athletics"
+      text="Sports Data Scientist"
       href="https://arizonawildcats.com"
-    />
-    {" "}as a Sports Data Scientist, recently supporting the football team with player valuation.
+    />.
     {"\n\n"}
     This summer, I am interning as a Software Development Intern on{" "}
     <InlineAccentLink

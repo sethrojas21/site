@@ -52,7 +52,6 @@ const imageMult = 4;
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
-    minWidth: pageSize,
     gap: 40
   },
   
