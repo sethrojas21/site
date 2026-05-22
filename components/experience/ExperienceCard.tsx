@@ -2,6 +2,7 @@ import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
 import { Text, StyleSheet, View } from "react-native";
 import AppText from "../AppText";
 import { colors } from "@/theme/color";
+import SkillCard from "./SkillCard";
 
 type ExpereinceCardProps = {
   position: string
@@ -45,9 +46,25 @@ export default function ExperienceCard(
       </View>
 
       <View style={styles.expInfoContainer}>
+
         <AppText style={styles.summaryText}>
           {summary}
         </AppText>
+
+        <View style={{flexDirection: 'row', gap: 5, paddingTop: 10}}>
+          <SkillCard
+            skill="Python"
+          />
+          <SkillCard
+            skill="Agentic AI"
+          />
+          <SkillCard
+            skill="PostgreSQL"
+          />
+          <SkillCard
+            skill="Python"
+          />
+        </View>
       </View>
     </View>
   )
