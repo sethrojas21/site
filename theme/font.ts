@@ -55,3 +55,8 @@ export const FONT_SIZE = {
   xl: 28,
   xxl: 36,
 } as const;
+
+export const FONT_FAMILY = {
+  regular: "Inter_400Regular",
+  bold: "Inter_700Bold",
+} as const;
