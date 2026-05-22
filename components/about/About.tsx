@@ -20,14 +20,26 @@ export default function About() {
           <Text style={styles.blurb}>{ABOUT_INTRO}</Text>
         </View>
 
-        <View style={styles.contactContainer}>
-          <Text style={{fontFamily: FONT_FAMILY.bold, fontSize: FONT_SIZE.xl}}>
+        <View style={styles.spacingContainer}>
+          <Text style={styles.aboutHeader}>
             Contact
           </Text>
+
           <Text style={styles.blurb}>
             You can reach me on <InlineAccentLink text="LinkedIn" href={LINKEDIN_LINK} />, <InlineAccentLink text="GitHub" href={GITHUB_LINK} />, 
-            and <InlineAccentLink text="Email" href={EMAIL_LINK} />
+            and <InlineAccentLink text="Email" href={EMAIL_LINK} />.
           </Text>
+        </View>
+        <View style={styles.spacingContainer}>
+          <Text style={styles.aboutHeader}>
+            Fun
+          </Text>
+
+          <Text style={styles.blurb}>
+            In my free time I enjoy playing and watching basketball, cooking, listening to music, 
+            and cheering on my Arizona Wildcats.
+          </Text>
+
         </View>
 
       </ScrollView>
@@ -49,7 +61,11 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     gap: 20,
   },
-  contactContainer: {
+  aboutHeader: {
+    fontFamily: FONT_FAMILY.bold, 
+    fontSize: FONT_SIZE.xl
+  },
+  spacingContainer: {
     paddingTop: 20
   },
   blurb: {

@@ -16,11 +16,11 @@ export const ABOUT_INTRO = (
     />
     {" "}as a Sports Data Scientist, recently supporting the football team with player valuation.
     {"\n\n"}
-    This summer, I am interning at IBM as Software Development Intern on the{" "}
+    This summer, I am interning as a Software Development Intern on{" "}
     <InlineAccentLink
       text="IBM Storage CTO's team"
       href="https://www.ibm.com/products/storage"
-    />
+    />.
   </>
 );
 

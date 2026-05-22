@@ -7,10 +7,6 @@ export const SIDEBAR_LINKS: SidebarLinkProps[] = [
     href: "/",
   },
   {
-    label: "Skills",
-    href: "/skills",
-  },
-  {
     label: "Experience",
     href: "/experience",
   },
