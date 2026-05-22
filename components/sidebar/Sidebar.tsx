@@ -4,13 +4,14 @@ import { FONT_SIZE } from "@/theme/font"
 import { SIDEBAR_LINKS } from "@/data/sidebar"
 import { usePathname } from "expo-router"
 import AccentLink from "../AccentLink"
+import { globalStyles } from "@/theme/styles"
 
 export default function Sidebar() {
   const pathname = usePathname();
 
   return (
   <View style={styles.container}>
-    <Text style={styles.nameHeader}>{FULL_NAME}</Text>
+    <Text style={globalStyles.nameHeader}>{FULL_NAME}</Text>
 
     <View style={styles.linksContainer}>
       {SIDEBAR_LINKS.map((sidebarLink) => (

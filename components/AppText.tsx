@@ -1,4 +1,5 @@
 // components/AppText.tsx
+import { FONT_FAMILY } from "@/theme/font";
 import { Text, TextProps, StyleSheet } from "react-native";
 
 export default function AppText({ style, ...props }: TextProps) {
@@ -12,6 +13,6 @@ export default function AppText({ style, ...props }: TextProps) {
 
 const styles = StyleSheet.create({
   text: {
-    fontFamily: "Inter_400Regular",
+    fontFamily: FONT_FAMILY.regular,
   },
 });

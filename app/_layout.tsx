@@ -76,13 +76,11 @@ const styles = StyleSheet.create({
   },
   leftColumn: {
     maxWidth: 200,
-    paddingTop: 10,
     paddingLeft: 5, 
   },
   rightColumn: {
     alignSelf: "stretch",
     flex: 1,
-    paddingTop: 10
   },
   scrollView: {
     flex: 1
