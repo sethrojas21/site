@@ -6,10 +6,11 @@ import { InlineAccentLink } from "../AccentLink";
 import { EMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK } from "@/config/config";
 import { openInNewTab } from "@/utils/linking";
 import { openURL } from "expo-linking";
+import { globalStyles } from "@/theme/styles";
 
 export default function About() {
   return (
-    <View style={styles.container}>
+    <View style={globalStyles.sectionContainer}>
       <ScrollView>
         <View style={styles.hstack}>
           <Image
@@ -48,9 +49,6 @@ export default function About() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
   image: {
     width: 200,
     height: 250,
