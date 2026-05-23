@@ -20,6 +20,7 @@ export default function About() {
         <View style={[
           styles.hstack,
           isMobile && styles.hstackMobile,
+          isMobile && (webStyles.mobileWrapContainer as any),
         ]}>
           <Image
             source={require("../../assets/images/newHeadshot.jpeg")}
@@ -29,6 +30,7 @@ export default function About() {
                 width: imageWidth,
                 height: imageHeight,
               },
+              isMobile && (webStyles.mobileFloatImage as any),
             ]}
             cachePolicy="memory-disk"
             contentFit="cover"
@@ -101,7 +103,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   introBlurbMobile: {
-    flex: 1,
+    flex: 0,
     width: "auto",
   },
   row: {
@@ -123,3 +125,14 @@ const styles = StyleSheet.create({
       backgroundColor: "#FFF1F0",
   },
 });
+
+const webStyles = {
+  mobileWrapContainer: {
+    display: "block",
+  },
+  mobileFloatImage: {
+    float: "left",
+    marginRight: 14,
+    marginBottom: 8,
+  },
+} as const;
