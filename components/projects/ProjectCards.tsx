@@ -3,6 +3,7 @@ import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
 import type { Project } from "@/types/project";
 import { openInNewTab } from "@/utils/linking";
 import { Pressable, StyleSheet, View } from "react-native";
+import { useState } from "react";
 import AppText from "../AppText";
 import { globalStyles } from "@/theme/styles";
 import SkillCard from "../experience/SkillCard";
@@ -12,8 +13,9 @@ type ProjectCardProps = Project & {
 };
 
 export default function ProjectCard({ 
-    num, name, description, skills, githubLink, projLink
+    num, name, description, details, skills, githubLink, projLink
 }: ProjectCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const displayNumber = String(num).padStart(2, "0");
   return (
@@ -29,16 +31,27 @@ export default function ProjectCard({
             {name}
           </AppText>
 
-          {githubLink && (
+          <View style={styles.actionsRow}>
+            {githubLink && (
+              <Pressable
+                onPress={() => openInNewTab(githubLink)}
+                style={styles.actionButton}
+              >
+                <AppText style={styles.githubText}>
+                  GitHub ↗
+                </AppText>
+              </Pressable>
+            )}
+
             <Pressable
-              onPress={() => openInNewTab(githubLink)}
-              style={styles.githubLink}
+              onPress={() => setIsExpanded((current) => !current)}
+              style={styles.actionButton}
             >
-              <AppText style={styles.githubText}>
-                GitHub ↗
+              <AppText style={styles.actionText}>
+                {isExpanded ? "Hide ˄" : "Details ˅"}
               </AppText>
             </Pressable>
-          )}
+          </View>
         </View>
 
         <AppText style={styles.descriptionText}>
@@ -54,6 +67,19 @@ export default function ProjectCard({
             ))}
 
         </View>
+
+        {isExpanded && (
+          <View style={styles.detailsContainer}>
+            {details.map((detail) => (
+              <View key={detail} style={styles.detailRow}>
+                <AppText style={styles.bulletText}>•</AppText>
+                <AppText style={styles.detailText}>
+                  {detail}
+                </AppText>
+              </View>
+            ))}
+          </View>
+        )}
 
       </View>
     </View>
@@ -91,17 +117,48 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     width: "100%",
   },
-  githubLink: {
+  actionsRow: {
+    flexDirection: "row",
+    flexShrink: 0,
+    gap: 12,
+  },
+  actionButton: {
     flexShrink: 0,
     paddingTop: 3,
   },
-  githubText: {
+  actionText: {
     fontSize: FONT_SIZE.sm,
     fontFamily: FONT_FAMILY.regular,
     color: colors.brand.primary,
   },
+  githubText: {
+    fontSize: FONT_SIZE.sm,
+    fontFamily: FONT_FAMILY.regular,
+    color: colors.brand.secondary,
+  },
   descriptionText: {
     paddingTop: 4,
+    fontSize: FONT_SIZE.md,
+    fontFamily: FONT_FAMILY.regular,
+    lineHeight: 24,
+    color: colors.text.primary,
+  },
+  detailsContainer: {
+    gap: 4,
+    paddingTop: 12,
+  },
+  detailRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+  },
+  bulletText: {
+    width: 16,
+    fontSize: FONT_SIZE.md,
+    lineHeight: 24,
+    color: colors.text.primary,
+  },
+  detailText: {
+    flex: 1,
     fontSize: FONT_SIZE.md,
     fontFamily: FONT_FAMILY.regular,
     lineHeight: 24,

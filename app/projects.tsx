@@ -18,6 +18,7 @@ export default function Projects() {
             key={project.name}
             name={project.name}
             description={project.description}
+            details={project.details}
             skills={project.skills}
             githubLink={project.githubLink}
             projLink={project.projLink} 
