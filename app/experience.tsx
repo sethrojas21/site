@@ -2,7 +2,7 @@ import ExperienceCard from "@/components/experience/ExperienceCard";
 import { experiences } from "@/data/experience";
 import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
 import { globalStyles } from "@/theme/styles";
-import { Text, View } from "react-native";
+import { Text, View, StyleSheet} from "react-native";
 
 export default function Experience() {
   return (
@@ -13,7 +13,7 @@ export default function Experience() {
           Experience
         </Text>
 
-        <View style={{paddingTop: 25, gap: 25}}>
+        <View style={styles.myView}>
           {experiences.map((experience) => (
             <ExperienceCard
               key={`${experience.company}-${experience.position}`}
@@ -21,6 +21,7 @@ export default function Experience() {
               company={experience.company}
               dates={experience.dates}
               summary={experience.summary}
+              details={experience.details}
               skills={experience.skills}
             />
           ))}
@@ -30,3 +31,13 @@ export default function Experience() {
     </View>
   )
 }
+
+const styles = StyleSheet.create({
+  button: {
+    backgroundColor: '#FFF',
+  },
+  myView: {
+    paddingTop: 25, 
+    gap: 25
+  }
+})

@@ -7,6 +7,8 @@ import { useState } from "react";
 import AppText from "../AppText";
 import { globalStyles } from "@/theme/styles";
 import SkillCard from "../experience/SkillCard";
+import DetailsToggle from "../DetailsToggle";
+import AnimatedDetails from "../AnimatedDetails";
 
 type ProjectCardProps = Project & {
   num: number;
@@ -43,14 +45,10 @@ export default function ProjectCard({
               </Pressable>
             )}
 
-            <Pressable
+            <DetailsToggle
+              isExpanded={isExpanded}
               onPress={() => setIsExpanded((current) => !current)}
-              style={styles.actionButton}
-            >
-              <AppText style={styles.actionText}>
-                {isExpanded ? "Hide ˄" : "Details ˅"}
-              </AppText>
-            </Pressable>
+            />
           </View>
         </View>
 
@@ -68,7 +66,7 @@ export default function ProjectCard({
 
         </View>
 
-        {isExpanded && (
+        <AnimatedDetails isExpanded={isExpanded}>
           <View style={styles.detailsContainer}>
             {details.map((detail) => (
               <View key={detail} style={styles.detailRow}>
@@ -79,7 +77,7 @@ export default function ProjectCard({
               </View>
             ))}
           </View>
-        )}
+        </AnimatedDetails>
 
       </View>
     </View>
@@ -125,11 +123,6 @@ const styles = StyleSheet.create({
   actionButton: {
     flexShrink: 0,
     paddingTop: 3,
-  },
-  actionText: {
-    fontSize: FONT_SIZE.sm,
-    fontFamily: FONT_FAMILY.regular,
-    color: colors.brand.primary,
   },
   githubText: {
     fontSize: FONT_SIZE.sm,

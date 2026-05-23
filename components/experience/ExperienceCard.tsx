@@ -2,21 +2,27 @@ import { Skill } from "@/data/experience";
 import { colors } from "@/theme/color";
 import { FONT_SIZE } from "@/theme/font";
 import { StyleSheet, View } from "react-native";
+import { useState } from "react";
 import AppText from "../AppText";
 import SkillCard from "./SkillCard";
 import { globalStyles } from "@/theme/styles";
+import DetailsToggle from "../DetailsToggle";
+import AnimatedDetails from "../AnimatedDetails";
 
 type ExpereinceCardProps = {
   position: string
   company: string
   dates: string
   summary: string
+  details: string[]
   skills: Skill[]
 };
 
 export default function ExperienceCard(
-  {position, company, dates, summary, skills} : ExpereinceCardProps
+  {position, company, dates, summary, details, skills} : ExpereinceCardProps
 ) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <View style={styles.cardContainer}>
 
@@ -33,9 +39,17 @@ export default function ExperienceCard(
           </AppText>
         </View>
 
-        <AppText style={styles.companyText}>
-          {company}
-        </AppText>
+        <View style={globalStyles.rowContainer}>
+          <AppText style={styles.companyText}>
+            {company}
+          </AppText>
+
+          <DetailsToggle
+            isExpanded={isExpanded}
+            onPress={() => setIsExpanded((current) => !current)}
+            color={colors.brand.secondary}
+          />
+        </View>
 
       </View>
 
@@ -54,6 +68,19 @@ export default function ExperienceCard(
           ))}
         </View>
       </View>
+
+      <AnimatedDetails isExpanded={isExpanded}>
+        <View style={styles.detailsContainer}>
+          {details.map((detail) => (
+            <View key={detail} style={styles.detailRow}>
+              <AppText style={styles.bulletText}>•</AppText>
+              <AppText style={styles.detailText}>
+                {detail}
+              </AppText>
+            </View>
+          ))}
+        </View>
+      </AnimatedDetails>
     </View>
   )
 }
@@ -61,7 +88,6 @@ export default function ExperienceCard(
 
 export const styles = StyleSheet.create({
   cardContainer: {
-    flex: 1,
     flexDirection: 'column',
     width: "100%",
   },
@@ -77,6 +103,8 @@ export const styles = StyleSheet.create({
     paddingLeft: 10,
   },
   companyText: {
+    flex: 1,
+    paddingRight: 12,
     fontSize: FONT_SIZE.md,
     fontStyle: 'italic'
   },
@@ -93,5 +121,29 @@ export const styles = StyleSheet.create({
   },
   summaryText: {
     fontSize: FONT_SIZE.md
+  },
+  detailsContainer: {
+    borderLeftWidth: 5,
+    borderColor: colors.brand.primary,
+    paddingTop: 5,
+    paddingBottom: 8,
+    gap: 4,
+    paddingLeft: 10,
+  },
+  detailRow: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+  },
+  bulletText: {
+    width: 16,
+    fontSize: FONT_SIZE.md,
+    lineHeight: 24,
+    color: colors.text.primary,
+  },
+  detailText: {
+    flex: 1,
+    fontSize: FONT_SIZE.md,
+    lineHeight: 24,
+    color: colors.text.primary,
   }
 })
