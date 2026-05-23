@@ -1,4 +1,4 @@
-import { FULL_NAME } from "@/config/config"
+import { FULL_NAME, RESUME_PATH } from "@/config/config"
 import { StyleSheet, Text, View } from "react-native"
 import { FONT_SIZE } from "@/theme/font"
 import { SIDEBAR_LINKS } from "@/data/sidebar"
@@ -34,7 +34,7 @@ export default function Sidebar() {
 
       <AccentLink 
         label="Resume"
-        href={"/resume/swe_resume.pdf"}
+        href={RESUME_PATH}
         external={true}
         isActive={false}
       />

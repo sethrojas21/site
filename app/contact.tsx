@@ -1,5 +1,5 @@
 import CircleIconButton from "@/components/contact/CircleIconButton";
-import { GITHUB_LINK, LINKEDIN_LINK } from "@/config/config";
+import { GITHUB_LINK, LINKEDIN_LINK, RESUME_PATH } from "@/config/config";
 import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
 import { globalStyles } from "@/theme/styles";
 import { openInNewTab } from "@/utils/linking";
@@ -67,7 +67,7 @@ export default function Contact() {
             <CircleIconButton
                 icon={{ pack: "ion", name: "document-outline", color: "grey", size: iconSize }}
                 accessibilityLabel="Download Resume"
-                onPress={() => openInNewTab("/resume/swe_resume.pdf")}
+                onPress={() => openInNewTab(RESUME_PATH)}
                 style={[
                   styles.iconBtn,
                   isMobile && styles.iconBtnMobile,
