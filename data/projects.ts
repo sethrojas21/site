@@ -1,4 +1,4 @@
-import { Project } from "@/components/projects/ProjectCards";
+import type { Project } from "@/types/project";
 import { Skill } from "@/data/experience";
 
 export const projects: Project[] = [

@@ -8,7 +8,7 @@ export default function Experience() {
   return (
     <View style={globalStyles.sectionContainer}>
 
-      <Text style={{fontFamily: FONT_FAMILY.bold, fontSize: FONT_SIZE.xl}}>
+      <Text style={globalStyles.sectionHeader}>
         Experience
       </Text>
 

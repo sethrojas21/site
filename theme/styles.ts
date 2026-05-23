@@ -5,6 +5,10 @@ export const globalStyles = StyleSheet.create({
   sectionContainer: {
     flex: 1,
   },
+  sectionHeader: {
+    fontFamily: FONT_FAMILY.bold, 
+    fontSize: FONT_SIZE.xl
+  },
   nameHeader: {
       fontSize: FONT_SIZE.xl,
       fontFamily: FONT_FAMILY.regular,

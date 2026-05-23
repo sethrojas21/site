@@ -1,53 +1,47 @@
-import { GITHUB_LINK } from "@/config/config";
-import { Skill } from "@/data/experience";
 import { colors } from "@/theme/color";
+import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
+import type { Project } from "@/types/project";
 import { openInNewTab } from "@/utils/linking";
-import { Feather } from "@expo/vector-icons";
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import TechCard, { techCardBackground } from "./TechCard";
+import { Pressable, StyleSheet, View } from "react-native";
 import AppText from "../AppText";
 import { globalStyles } from "@/theme/styles";
 import SkillCard from "../experience/SkillCard";
 
-export type Project = {
+type ProjectCardProps = Project & {
   num: number;
-  name: string;
-  description: string;
-  skills: Skill[];
-  githubLink?: string;
-  projLink?: string;
 };
 
 export default function ProjectCard({ 
     num, name, description, skills, githubLink, projLink
-}: Project) {
+}: ProjectCardProps) {
 
   const displayNumber = String(num).padStart(2, "0");
   return (
-    <View style={{flex: 1, flexDirection: 'row'}}>
+    <View style={styles.container}>
       <AppText style={styles.displayNumText}>
-        {displayNumber}
+        {displayNumber} /
       </AppText>
 
-      <View style={{flexDirection:'column'}}>
+      <View style={styles.content}>
         
-        <View style={globalStyles.rowContainer}>
-          <AppText>
+        <View style={styles.headerRow}>
+          <AppText style={styles.titleText}>
             {name}
           </AppText>
 
-          <View style={{flexDirection:'row', justifyContent:'flex-start', gap: 5}}>
-            <AppText>
-              GitHub
-            </AppText>
-
-            <AppText>
-              Detail
-            </AppText>
-          </View>
+          {githubLink && (
+            <Pressable
+              onPress={() => openInNewTab(githubLink)}
+              style={styles.githubLink}
+            >
+              <AppText style={styles.githubText}>
+                GitHub ↗
+              </AppText>
+            </Pressable>
+          )}
         </View>
 
-        <AppText>
+        <AppText style={styles.descriptionText}>
           {description}
         </AppText>
 
@@ -62,17 +56,55 @@ export default function ProjectCard({
         </View>
 
       </View>
-
-
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    width: "100%",
+    borderBottomWidth: 1,
+    borderColor: colors.border,
+    paddingBottom: 20,
+  },
   displayNumText: {
-    paddingRight: 5
+    width: 44,
+    paddingTop: 2,
+    fontSize: FONT_SIZE.sm,
+    fontFamily: FONT_FAMILY.regular,
+    color: "#8A8A8A",
+  },
+  content: {
+    flex: 1,
   },
   titleText: {
-    
-  }
+    flex: 1,
+    paddingRight: 12,
+    fontSize: FONT_SIZE.lg,
+    fontFamily: FONT_FAMILY.bold,
+    color: colors.text.primary,
+  },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    width: "100%",
+  },
+  githubLink: {
+    flexShrink: 0,
+    paddingTop: 3,
+  },
+  githubText: {
+    fontSize: FONT_SIZE.sm,
+    fontFamily: FONT_FAMILY.regular,
+    color: colors.brand.primary,
+  },
+  descriptionText: {
+    paddingTop: 4,
+    fontSize: FONT_SIZE.md,
+    fontFamily: FONT_FAMILY.regular,
+    lineHeight: 24,
+    color: colors.text.primary,
+  },
 });
