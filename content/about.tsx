@@ -13,7 +13,7 @@ export const ABOUT_INTRO = (
     I currently work at the University of Arizona Athletics as a 
 		{" "}
     <InlineAccentLink
-      text="Sports Data Scientist"
+      text="Data Scientist"
       href="https://arizonawildcats.com"
     />.
     {"\n\n"}
