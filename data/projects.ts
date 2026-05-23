@@ -25,6 +25,15 @@ export const projects: Project[] = [
         githubLink: "https://github.com/flow-kode",
     },
     {
+        name: "UA AI Studio",
+        description: "HackArizona 2026 project building a course-specific RAG assistant backend",
+        details: [
+            "Built FastAPI endpoints for document ingestion, embedding storage, retrieval, and source-grounded chat responses.",
+            "Used Supabase vector search and Gemini to support course-specific, memory-aware LLM retrieval.",
+        ],
+        skills: [Skill.FastAPI, Skill.Supabase, Skill.Gemini, Skill.RAG, Skill.APIs],
+    },
+    {
         name: "CFB Expected Points Added Model",
         description: "Multinomial logistic regression model estimating the expected points of a college football play",
         details: [
