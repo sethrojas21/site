@@ -1,16 +1,17 @@
-import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
-import { Text, StyleSheet, View } from "react-native";
-import AppText from "../AppText";
+import { Skill } from "@/data/experience";
 import { colors } from "@/theme/color";
+import { FONT_SIZE } from "@/theme/font";
+import { StyleSheet, View } from "react-native";
+import AppText from "../AppText";
 import SkillCard from "./SkillCard";
-import { ExperienceSkill } from "@/data/experience";
+import { globalStyles } from "@/theme/styles";
 
 type ExpereinceCardProps = {
   position: string
   company: string
   dates: string
   summary: string
-  skills: ExperienceSkill[]
+  skills: Skill[]
 };
 
 export default function ExperienceCard(
@@ -21,7 +22,7 @@ export default function ExperienceCard(
 
       <View style={styles.expHeadlineContainer}>
 
-        <View style={styles.rowContainer}>
+        <View style={globalStyles.rowContainer}>
 
           <AppText style={styles.positionText}>
             {position}
@@ -44,7 +45,7 @@ export default function ExperienceCard(
           {summary}
         </AppText>
 
-        <View style={styles.skillsRow}>
+        <View style={globalStyles.skillsRow}>
           {skills.map((skill) => (
             <SkillCard
               key={skill}
@@ -58,7 +59,7 @@ export default function ExperienceCard(
 }
 
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
     flexDirection: 'column',
@@ -79,13 +80,6 @@ const styles = StyleSheet.create({
     fontSize: FONT_SIZE.md,
     fontStyle: 'italic'
   },
-  rowContainer: {
-    flexDirection: "row",
-    paddingBottom: 2,
-    justifyContent: "space-between",
-    alignItems: "flex-start",
-    width: "100%",
-  },
   positionText: {
     flex: 1,
     fontSize: FONT_SIZE.lg,
@@ -99,11 +93,5 @@ const styles = StyleSheet.create({
   },
   summaryText: {
     fontSize: FONT_SIZE.md
-  },
-  skillsRow: {
-    flexDirection: "row",
-    flexWrap: "wrap",
-    gap: 6,
-    paddingTop: 10,
   }
 })

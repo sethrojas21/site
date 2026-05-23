@@ -1,4 +1,4 @@
-export enum ExperienceSkill {
+export enum Skill {
   AgenticAI = "Agentic AI",
   APIs = "APIs",
   Caching = "Caching",
@@ -12,11 +12,17 @@ export enum ExperienceSkill {
   MobileDevelopment = "Mobile Development",
   PostgreSQL = "PostgreSQL",
   Python = "Python",
+  React = "React",
+  Expo = "Expo",
   R = "R",
+  SQL = "SQL",
   SQLite = "SQLite",
   Streamlit = "Streamlit",
+  Swift = "Swift",
+  SwiftData = "SwiftData",
   TeamCollaboration = "Team Collaboration",
   TechnicalCommunication = "Technical Communication",
+  TypeScript = "TypeScript",
 }
 
 export type Experience = {
@@ -24,22 +30,22 @@ export type Experience = {
   company: string;
   dates: string;
   summary: string;
-  skills: ExperienceSkill[];
+  skills: Skill[];
 };
 
 export const experiences: Experience[] = [
   {
     position: "Software Development Intern",
     company: "IBM Storage",
-    dates: "May 2026 - August 2026",
+    dates: "May 2026 - Present",
     summary:
       "Built an agentic AI infrastructure key-value inference cache flow and presented to IBM Fellows and Senior VPs.",
     skills: [
-      ExperienceSkill.AgenticAI,
-      ExperienceSkill.Python,
-      ExperienceSkill.Infrastructure,
-      ExperienceSkill.Caching,
-      ExperienceSkill.TechnicalCommunication,
+      Skill.AgenticAI,
+      Skill.Python,
+      Skill.Infrastructure,
+      Skill.Caching,
+      Skill.TechnicalCommunication,
     ],
   },
   {
@@ -49,11 +55,11 @@ export const experiences: Experience[] = [
     summary:
       "Built football player valuation models and data pipelines for recruiting analytics.",
     skills: [
-      ExperienceSkill.Python,
-      ExperienceSkill.PostgreSQL,
-      ExperienceSkill.MachineLearning,
-      ExperienceSkill.Streamlit,
-      ExperienceSkill.ETL,
+      Skill.Python,
+      Skill.PostgreSQL,
+      Skill.MachineLearning,
+      Skill.Streamlit,
+      Skill.ETL,
     ],
   },
   {
@@ -63,25 +69,25 @@ export const experiences: Experience[] = [
     summary:
       "Developed basketball recruiting metrics, data pipelines, and a dashboard for research presentation.",
     skills: [
-      ExperienceSkill.R,
-      ExperienceSkill.Python,
-      ExperienceSkill.SQLite,
-      ExperienceSkill.FastAPI,
-      ExperienceSkill.GoogleCloud,
+      Skill.R,
+      Skill.Python,
+      Skill.SQLite,
+      Skill.FastAPI,
+      Skill.GoogleCloud,
     ],
   },
   {
-    position: "Mobile Application Developer Intern",
+    position: "Mobile Developer Intern",
     company: "University of Arizona, Electrical and Computer Engineering",
     dates: "June 2023 - August 2024",
     summary:
       "Built a Java healthcare stress management app with live biometric data and visualizations.",
     skills: [
-      ExperienceSkill.Java,
-      ExperienceSkill.MobileDevelopment,
-      ExperienceSkill.APIs,
-      ExperienceSkill.DataVisualization,
-      ExperienceSkill.TeamCollaboration,
+      Skill.Java,
+      Skill.MobileDevelopment,
+      Skill.APIs,
+      Skill.DataVisualization,
+      Skill.TeamCollaboration,
     ],
   },
 ];

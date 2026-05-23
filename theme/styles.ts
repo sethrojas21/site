@@ -10,4 +10,17 @@ export const globalStyles = StyleSheet.create({
       fontFamily: FONT_FAMILY.regular,
       color: "black",
     },
+  rowContainer: {
+    flexDirection: "row",
+    paddingBottom: 2,
+    justifyContent: "space-between",
+    alignItems: "flex-start",
+    width: "100%",
+  },
+  skillsRow: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 6,
+    paddingTop: 10,
+  }
 });
