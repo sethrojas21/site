@@ -11,7 +11,7 @@ import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
 import { colors } from "@/theme/color";
 
 const maxPageWidth = 900;
-const minGapWidth = 730;
+const minGapWidth = 600;
 const maxColumnGap = 50;
 export default function RootLayout() {
   const [fontsLoaded] = useFonts({

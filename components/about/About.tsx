@@ -1,17 +1,14 @@
 import { ABOUT_INTRO } from "@/content/about";
 import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
-import { ScrollView } from "@nandorojo/anchor";
 import { View, Image, StyleSheet, Text } from "react-native";
 import { InlineAccentLink } from "../AccentLink";
 import { EMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK } from "@/config/config";
-import { openInNewTab } from "@/utils/linking";
-import { openURL } from "expo-linking";
 import { globalStyles } from "@/theme/styles";
 
 export default function About() {
   return (
     <View style={globalStyles.sectionContainer}>
-      <ScrollView>
+      <View style={globalStyles.pageContent}>
         <View style={styles.hstack}>
           <Image
             source={require("../../assets/images/newHeadshot.jpeg")}
@@ -43,7 +40,7 @@ export default function About() {
 
         </View>
 
-      </ScrollView>
+      </View>
     </View>
   );
 }

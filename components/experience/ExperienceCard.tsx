@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
     flexDirection: 'column',
-    width: 600,
+    width: "100%",
   },
   expHeadlineContainer: {
     borderLeftWidth: 5,

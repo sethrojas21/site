@@ -4,6 +4,12 @@ import { FONT_FAMILY, FONT_SIZE } from "./font";
 export const globalStyles = StyleSheet.create({
   sectionContainer: {
     flex: 1,
+    width: "100%",
+    alignItems: "center",
+  },
+  pageContent: {
+    width: "100%",
+    maxWidth: 600,
   },
   sectionHeader: {
     fontFamily: FONT_FAMILY.bold, 
