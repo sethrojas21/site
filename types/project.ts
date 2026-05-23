@@ -1,9 +1,10 @@
-import { Tech } from "@/types/tech";
+import type { Skill } from "@/data/experience";
 
 export type Project = {
   name: string;
   description: string;
-  tech: Tech[];
+  details: string[];
+  skills: Skill[];
   githubLink?: string;
   projLink?: string;
 };

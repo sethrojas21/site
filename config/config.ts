@@ -4,3 +4,4 @@ export const SETH_DEV_NAMES: string[] = ["Software Developer", "Data Scientist"]
 
 export const LINKEDIN_LINK: string = "https://www.linkedin.com/in/skrojas"
 export const GITHUB_LINK: string = "https://github.com/sethrojas21";
+export const EMAIL_LINK: string = "mailto:skrojas@arizona.edu"
