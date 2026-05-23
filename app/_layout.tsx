@@ -62,9 +62,8 @@ export default function RootLayout() {
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    alignItems: 'center',
+    width: "100%",
     paddingTop: 50,
-    paddingHorizontal: 5,
     borderWidth: 1
   },
   container: {
@@ -83,11 +82,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   scrollView: {
-    flex: 1
+    flex: 1,
+    width: "100%",
   },
   scrollContent: {
     flexGrow: 1,
     alignItems: "center",
+    paddingHorizontal: 5,
   },
   copyrightText: {
     marginTop: "auto",
