@@ -14,6 +14,28 @@ export const projects: Project[] = [
         githubLink: "https://github.com/sethrojas21/Roster-IQ",
     },
     {
+        name: "UA AI Studio",
+        description: "HackArizona 2026 project building a course-specific RAG assistant backend",
+        details: [
+            "Built FastAPI endpoints for document ingestion, embedding storage, retrieval, and source-grounded chat responses.",
+            "Used Supabase vector search and Gemini to support course-specific, memory-aware LLM retrieval.",
+        ],
+        skills: [Skill.FastAPI, Skill.Supabase, Skill.Gemini, Skill.RAG, Skill.APIs],
+        githubLink: "https://github.com/tummalapalli24/uofa_ai_studio",
+    },
+    {
+        name: "U.S. Gasoline Supply Forecasting",
+        description: "Built a public time-series forecasting dataset and ML pipeline to predict next-month U.S. motor gasoline supplied.",
+        details: [
+            "Built a cleaned monthly forecasting dataset from public energy, economic, transportation, search-interest, and risk indicators.",
+            "Created a reproducible pipeline for loading, merging, feature engineering, and modeling.",
+            "Compared regression, regularized, tree-based, SVR, and PCA-based models against seasonal baselines.",
+            "Found that strong baselines and temporal validation are critical in economic forecasting.",
+        ],
+        skills: [Skill.MachineLearning, Skill.Python, Skill.DataVisualization],
+        githubLink: "https://github.com/sethrojas21/gasoline-supply-forecasting",
+    },
+    {
         name: "Flow Kode",
         description: "CalHacks 2025 project developing an IDE-integrated agentic project manager on 3-person team",
         details: [
@@ -23,16 +45,6 @@ export const projects: Project[] = [
         ],
         skills: [Skill.Python, Skill.MachineLearning, Skill.TeamCollaboration],
         githubLink: "https://github.com/flow-kode",
-    },
-    {
-        name: "UA AI Studio",
-        description: "HackArizona 2026 project building a course-specific RAG assistant backend",
-        details: [
-            "Built FastAPI endpoints for document ingestion, embedding storage, retrieval, and source-grounded chat responses.",
-            "Used Supabase vector search and Gemini to support course-specific, memory-aware LLM retrieval.",
-        ],
-        skills: [Skill.FastAPI, Skill.Supabase, Skill.Gemini, Skill.RAG, Skill.APIs],
-        githubLink: "https://github.com/tummalapalli24/uofa_ai_studio",
     },
     {
         name: "CFB Expected Points Added Model",
