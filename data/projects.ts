@@ -25,7 +25,7 @@ export const projects: Project[] = [
     },
     {
         name: "U.S. Gasoline Supply Forecasting",
-        description: "Built a public time-series forecasting dataset and ML pipeline to predict next-month U.S. motor gasoline supplied.",
+        description: "Built a public time-series forecasting dataset and ML pipeline to predict next-month U.S. motor gasoline supplied",
         details: [
             "Built a cleaned monthly forecasting dataset from public energy, economic, transportation, search-interest, and risk indicators.",
             "Created a reproducible pipeline for loading, merging, feature engineering, and modeling.",
