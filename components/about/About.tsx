@@ -5,20 +5,40 @@ import { Image } from "expo-image";
 import { InlineAccentLink } from "../AccentLink";
 import { EMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK } from "@/config/config";
 import { globalStyles } from "@/theme/styles";
+import { useResponsive } from "@/theme/responsive";
 
 export default function About() {
+  const { width, isMobile } = useResponsive();
+  const imageWidth = isMobile
+    ? Math.max(110, Math.min(150, width * 0.33))
+    : 200;
+  const imageHeight = imageWidth * 1.25;
+
   return (
     <View style={globalStyles.sectionContainer}>
       <View style={globalStyles.pageContent}>
-        <View style={styles.hstack}>
+        <View style={[
+          styles.hstack,
+          isMobile && styles.hstackMobile,
+        ]}>
           <Image
             source={require("../../assets/images/newHeadshot.jpeg")}
-            style={styles.image}
+            style={[
+              styles.image,
+              {
+                width: imageWidth,
+                height: imageHeight,
+              },
+            ]}
             cachePolicy="memory-disk"
             contentFit="cover"
           />
 
-          <Text style={styles.blurb}>{ABOUT_INTRO}</Text>
+          <Text style={[
+            styles.blurb,
+            styles.introBlurb,
+            isMobile && styles.introBlurbMobile,
+          ]}>{ABOUT_INTRO}</Text>
         </View>
 
         <View style={styles.spacingContainer}>
@@ -50,14 +70,17 @@ export default function About() {
 
 const styles = StyleSheet.create({
   image: {
-    width: 200,
-    height: 250,
     borderRadius: 10,
   },
   hstack: {
     flexDirection: "row",
     alignItems: "flex-start",
     gap: 20,
+  },
+  hstackMobile: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    gap: 14,
   },
   aboutHeader: {
     fontFamily: FONT_FAMILY.bold, 
@@ -69,7 +92,17 @@ const styles = StyleSheet.create({
   blurb: {
     fontSize: FONT_SIZE.md,
     lineHeight: 24,
-    fontFamily: "Inter_400Regular"
+    fontFamily: "Inter_400Regular",
+    flexShrink: 1,
+    maxWidth: "100%",
+    textAlign: "left",
+  },
+  introBlurb: {
+    flex: 1,
+  },
+  introBlurbMobile: {
+    flex: 1,
+    width: "auto",
   },
   row: {
     flexDirection: "row",

@@ -9,6 +9,7 @@ import { globalStyles } from "@/theme/styles";
 import SkillCard from "../experience/SkillCard";
 import DetailsToggle from "../DetailsToggle";
 import AnimatedDetails from "../AnimatedDetails";
+import { useResponsive } from "@/theme/responsive";
 
 type ProjectCardProps = Project & {
   num: number;
@@ -18,22 +19,32 @@ export default function ProjectCard({
     num, name, description, details, skills, githubLink, projLink
 }: ProjectCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { isMobile } = useResponsive();
 
   const displayNumber = String(num).padStart(2, "0");
   return (
-    <View style={styles.container}>
+    <View style={[
+      styles.container,
+      isMobile && styles.containerMobile,
+    ]}>
       <AppText style={styles.displayNumText}>
         {displayNumber} /
       </AppText>
 
       <View style={styles.content}>
         
-        <View style={styles.headerRow}>
+        <View style={[
+          styles.headerRow,
+          isMobile && styles.headerRowMobile,
+        ]}>
           <AppText style={styles.titleText}>
             {name}
           </AppText>
 
-          <View style={styles.actionsRow}>
+          <View style={[
+            styles.actionsRow,
+            isMobile && styles.actionsRowMobile,
+          ]}>
             {githubLink && (
               <Pressable
                 onPress={() => openInNewTab(githubLink)}
@@ -92,6 +103,9 @@ const styles = StyleSheet.create({
     borderColor: colors.border,
     paddingBottom: 20,
   },
+  containerMobile: {
+    gap: 2,
+  },
   displayNumText: {
     width: 44,
     paddingTop: 2,
@@ -115,10 +129,17 @@ const styles = StyleSheet.create({
     alignItems: "flex-start",
     width: "100%",
   },
+  headerRowMobile: {
+    flexDirection: "column",
+    gap: 4,
+  },
   actionsRow: {
     flexDirection: "row",
     flexShrink: 0,
     gap: 12,
+  },
+  actionsRowMobile: {
+    flexWrap: "wrap",
   },
   actionButton: {
     flexShrink: 0,

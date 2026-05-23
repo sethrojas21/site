@@ -8,6 +8,7 @@ import SkillCard from "./SkillCard";
 import { globalStyles } from "@/theme/styles";
 import DetailsToggle from "../DetailsToggle";
 import AnimatedDetails from "../AnimatedDetails";
+import { useResponsive } from "@/theme/responsive";
 
 type ExpereinceCardProps = {
   position: string
@@ -22,13 +23,17 @@ export default function ExperienceCard(
   {position, company, dates, summary, details, skills} : ExpereinceCardProps
 ) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const { isMobile } = useResponsive();
 
   return (
     <View style={styles.cardContainer}>
 
       <View style={styles.expHeadlineContainer}>
 
-        <View style={globalStyles.rowContainer}>
+        <View style={[
+          globalStyles.rowContainer,
+          isMobile && styles.rowMobile,
+        ]}>
 
           <AppText style={styles.positionText}>
             {position}
@@ -39,7 +44,10 @@ export default function ExperienceCard(
           </AppText>
         </View>
 
-        <View style={globalStyles.rowContainer}>
+        <View style={[
+          globalStyles.rowContainer,
+          isMobile && styles.rowMobile,
+        ]}>
           <AppText style={styles.companyText}>
             {company}
           </AppText>
@@ -121,6 +129,10 @@ export const styles = StyleSheet.create({
   },
   summaryText: {
     fontSize: FONT_SIZE.md
+  },
+  rowMobile: {
+    flexDirection: "column",
+    gap: 2,
   },
   detailsContainer: {
     borderLeftWidth: 5,

@@ -6,43 +6,73 @@ import { openInNewTab } from "@/utils/linking";
 import { openURL } from "expo-linking";
 import { StyleSheet, View } from "react-native";
 import { Image } from "expo-image";
+import { useResponsive } from "@/theme/responsive";
 
 export default function Contact() {
+  const { isMobile } = useResponsive();
+  const iconSize = isMobile ? contactIconSizeMobile : contactIconSize;
+
   return (
     <View style={[globalStyles.sectionContainer, styles.container]}>
-      <View style={[globalStyles.pageContent, styles.content]}>
+      <View style={[
+        globalStyles.pageContent,
+        styles.content,
+        isMobile && styles.contentMobile,
+      ]}>
         <Image
           source={require("../assets/images/contactPhoto.jpeg")}
-          style={styles.image}
+          style={[
+            styles.image,
+            isMobile && styles.imageMobile,
+          ]}
           cachePolicy="memory-disk"
           contentFit="cover"
         />
 
 
-        <View style={styles.row}>
+        <View style={[
+          styles.row,
+          isMobile && styles.rowMobile,
+        ]}>
             <CircleIconButton
-                icon={{ pack: "ion", name: "logo-github", color: "#6F42C1", size: contactIconSize }}
+                icon={{ pack: "ion", name: "logo-github", color: "#6F42C1", size: iconSize }}
                 accessibilityLabel="Open GitHub"
-                style={[styles.iconBtn, styles.githubBtn]}
+                style={[
+                  styles.iconBtn,
+                  isMobile && styles.iconBtnMobile,
+                  styles.githubBtn,
+                ]}
                 onPress={() => openInNewTab(GITHUB_LINK)}
             />
             <CircleIconButton
-                icon={{ pack: "ion", name: "logo-linkedin", color: "#0A66C2", size: contactIconSize }}
+                icon={{ pack: "ion", name: "logo-linkedin", color: "#0A66C2", size: iconSize }}
                 accessibilityLabel="Open LinkedIn"
-                style={[styles.iconBtn, styles.linkedinBtn]}
+                style={[
+                  styles.iconBtn,
+                  isMobile && styles.iconBtnMobile,
+                  styles.linkedinBtn,
+                ]}
                 onPress={() => openInNewTab(LINKEDIN_LINK)}
             />
             <CircleIconButton
-                icon={{ pack: "ion", name: "mail-outline", color: "#EA4335", size: contactIconSize }}
+                icon={{ pack: "ion", name: "mail-outline", color: "#EA4335", size: iconSize }}
                 accessibilityLabel="Send Email"
-                style={[styles.iconBtn, styles.emailBtn]}
+                style={[
+                  styles.iconBtn,
+                  isMobile && styles.iconBtnMobile,
+                  styles.emailBtn,
+                ]}
                 onPress={() => openURL("mailto:skrojas@arizona.edu")}
             />
             <CircleIconButton
-                icon={{ pack: "ion", name: "document-outline", color: "grey", size: contactIconSize }}
+                icon={{ pack: "ion", name: "document-outline", color: "grey", size: iconSize }}
                 accessibilityLabel="Download Resume"
                 onPress={() => openInNewTab("/resume/swe_resume.pdf")}
-                style={[styles.iconBtn, styles.resumeBtn]}
+                style={[
+                  styles.iconBtn,
+                  isMobile && styles.iconBtnMobile,
+                  styles.resumeBtn,
+                ]}
             />
         </View>
       </View>
@@ -52,6 +82,7 @@ export default function Contact() {
 
 const pageSize = 350;
 const contactIconSize = 32;
+const contactIconSizeMobile = 28;
 const imageMult = 4;
 const styles = StyleSheet.create({
   container: {
@@ -60,6 +91,9 @@ const styles = StyleSheet.create({
   content: {
     alignItems: "center",
     gap: 40,
+  },
+  contentMobile: {
+    gap: 28,
   },
   
   titleText: {
@@ -73,9 +107,18 @@ const styles = StyleSheet.create({
     borderWidth: 2,   // Optional: add a border
     borderColor: '#fff',
   },
+  imageMobile: {
+    width: 220,
+    height: 220,
+    borderRadius: 110,
+  },
   iconBtn: {
     width: pageSize / imageMult,
     height: pageSize / imageMult
+  },
+  iconBtnMobile: {
+    width: 64,
+    height: 64,
   },
   githubBtn: {
     borderColor: "#E9E2FF",
@@ -96,5 +139,10 @@ const styles = StyleSheet.create({
   row: {
       flexDirection: "row",
       gap: pageSize / (imageMult * 4),
+  },
+  rowMobile: {
+    flexWrap: "wrap",
+    justifyContent: "center",
+    gap: 14,
   },
 })
