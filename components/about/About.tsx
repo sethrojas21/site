@@ -1,6 +1,7 @@
 import { ABOUT_INTRO } from "@/content/about";
 import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
-import { View, Image, StyleSheet, Text } from "react-native";
+import { View, StyleSheet, Text } from "react-native";
+import { Image } from "expo-image";
 import { InlineAccentLink } from "../AccentLink";
 import { EMAIL_LINK, GITHUB_LINK, LINKEDIN_LINK } from "@/config/config";
 import { globalStyles } from "@/theme/styles";
@@ -13,6 +14,8 @@ export default function About() {
           <Image
             source={require("../../assets/images/newHeadshot.jpeg")}
             style={styles.image}
+            cachePolicy="memory-disk"
+            contentFit="cover"
           />
 
           <Text style={styles.blurb}>{ABOUT_INTRO}</Text>

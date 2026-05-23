@@ -4,7 +4,8 @@ import { FONT_FAMILY, FONT_SIZE } from "@/theme/font";
 import { globalStyles } from "@/theme/styles";
 import { openInNewTab } from "@/utils/linking";
 import { openURL } from "expo-linking";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View } from "react-native";
+import { Image } from "expo-image";
 
 export default function Contact() {
   return (
@@ -13,6 +14,8 @@ export default function Contact() {
         <Image
           source={require("../assets/images/contactPhoto.jpeg")}
           style={styles.image}
+          cachePolicy="memory-disk"
+          contentFit="cover"
         />
 
 
