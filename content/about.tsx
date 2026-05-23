@@ -7,7 +7,7 @@ export const ABOUT_INTRO = (
     <InlineAccentLink
       text="University of Arizona"
       href="https://www.cs.arizona.edu"
-    />
+    />.
     {" "}
     {"\n\n"}
     I currently work at the University of Arizona Athletics as a 
