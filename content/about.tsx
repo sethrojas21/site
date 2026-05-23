@@ -17,7 +17,7 @@ export const ABOUT_INTRO = (
       href="https://arizonawildcats.com"
     />.
     {"\n\n"}
-    This summer, I am interning as a Software Development Intern on{" "}
+    This summer, I am interning as a Software Development Intern on the{" "}
     <InlineAccentLink
       text="IBM Storage CTO's team"
       href="https://www.ibm.com/products/storage"
