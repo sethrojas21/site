@@ -32,6 +32,7 @@ export const projects: Project[] = [
             "Used Supabase vector search and Gemini to support course-specific, memory-aware LLM retrieval.",
         ],
         skills: [Skill.FastAPI, Skill.Supabase, Skill.Gemini, Skill.RAG, Skill.APIs],
+        githubLink: "https://github.com/tummalapalli24/uofa_ai_studio",
     },
     {
         name: "CFB Expected Points Added Model",
