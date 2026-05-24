@@ -20,7 +20,7 @@ export default function Contact() {
         isMobile && styles.contentMobile,
       ]}>
         <Image
-          source={require("../assets/images/contactPhoto.jpeg")}
+          source={require("../assets/images/newHeadshot.jpeg")}
           style={[
             styles.image,
             isMobile && styles.imageMobile,

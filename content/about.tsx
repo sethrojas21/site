@@ -10,14 +10,14 @@ export const ABOUT_INTRO = (
     />.
     {" "}
     {"\n\n"}
-    I currently work at the University of Arizona Athletics as a 
+    I currently intern for the University of Arizona Athletics as a 
 		{" "}
     <InlineAccentLink
       text="Data Scientist"
       href="https://arizonawildcats.com"
     />.
     {"\n\n"}
-    This summer, I am interning as a Software Development Intern on the{" "}
+    This summer, I am interning as a Software Development Engineer on the{" "}
     <InlineAccentLink
       text="IBM Storage CTO's team"
       href="https://www.ibm.com/products/storage"
