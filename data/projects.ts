@@ -36,12 +36,11 @@ export const projects: Project[] = [
     },
     {
         name: "U.S. Gasoline Supply Forecasting",
-        description: "Built a public time-series forecasting dataset and ML pipeline to predict next-month U.S. motor gasoline supplied",
+        description: "Time-series forecasting pipeline that reduced naive U.S. gasoline demand forecast error by 30%",
         details: [
-            "Built a cleaned monthly forecasting dataset from public energy, economic, transportation, search-interest, and risk indicators.",
-            "Created a reproducible pipeline for loading, merging, feature engineering, and modeling.",
-            "Compared regression, regularized, tree-based, SVR, and PCA-based models against seasonal baselines.",
-            "Found that strong baselines and temporal validation are critical in economic forecasting.",
+            "Engineered time-series features and evaluated 13 machine-learning and econometric forecasting models.",
+            "Built a monthly dataset combining energy, economic, transportation, search-interest, and risk indicators.",
+            "Used temporal validation to compare model performance against seasonal and naive baselines.",
         ],
         skills: [Skill.MachineLearning, Skill.Python, Skill.DataVisualization],
         githubLink: "https://github.com/sethrojas21/gasoline-supply-forecasting",
