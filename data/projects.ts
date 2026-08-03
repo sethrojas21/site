@@ -26,12 +26,12 @@ export const projects: Project[] = [
     },
     {
         name: "UA AI Studio",
-        description: "HackArizona 2026 project building a course-specific RAG assistant backend",
+        description: "HackArizona 2026 RAG-powered teaching assistant for course-specific tutoring",
         details: [
-            "Built FastAPI endpoints for document ingestion, embedding storage, retrieval, and source-grounded chat responses.",
-            "Used Supabase vector search and Gemini to support course-specific, memory-aware LLM retrieval.",
+            "Built an AI teaching assistant that ingests classroom notes and delivers context-aware tutoring responses.",
+            "Developed a FastAPI backend with Supabase vector embeddings for course-specific retrieval.",
         ],
-        skills: [Skill.FastAPI, Skill.Supabase, Skill.Gemini, Skill.RAG, Skill.APIs],
+        skills: [Skill.FastAPI, Skill.Supabase, Skill.RAG, Skill.APIs],
         githubLink: "https://github.com/tummalapalli24/uofa_ai_studio",
     },
     {
