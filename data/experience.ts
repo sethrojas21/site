@@ -3,6 +3,7 @@ export enum Skill {
   APIs = "APIs",
   Caching = "Caching",
   DataVisualization = "Data Visualization",
+  Deployment = "Deployment",
   ETL = "ETL",
   FastAPI = "FastAPI",
   GoogleCloud = "Google Cloud",
@@ -39,21 +40,21 @@ export type Experience = {
 
 export const experiences: Experience[] = [
   {
-    position: "Software Development Intern",
-    company: "IBM Storage",
+    position: "Software Development Engineer Intern",
+    company: "IBM Storage CTO's Office",
     dates: "May 2026 - Present",
     summary:
-      "Built an agentic AI infrastructure key-value inference cache flow and presented to IBM Fellows and Senior VPs.",
+      "Built an AI infrastructure advisor to be demoed at NVIDIA GTC Berlin.",
     details: [
-      "Designed an agentic AI inference-cache flow for infrastructure key-value workloads.",
-      "Presented the technical direction and prototype to IBM Fellows and Senior VPs.",
-      "Focused on reducing repeated inference work through reusable cache-aware system design.",
+      "Developed a Python agent that recommends distributed inference environments.",
+      "Synthesize simulations into enterprise recommendations using LLMs in under seven minutes.",
+      "Demoed to eight IBM researchers, authored an IBM blog, and presented AI topics to senior technical leaders.",
     ],
     skills: [
       Skill.AgenticAI,
       Skill.Python,
-      Skill.Infrastructure,
-      Skill.Caching,
+      Skill.Deployment,
+      Skill.APIs,
       Skill.TechnicalCommunication,
     ],
   },
