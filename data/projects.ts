@@ -14,6 +14,17 @@ export const projects: Project[] = [
         githubLink: "https://github.com/sethrojas21/Roster-IQ",
     },
     {
+        name: "Tendly",
+        description: "First-place Berkeley AI Hackathon 2026 project building an AI voice assistant for senior citizens",
+        details: [
+            "Built an AI voice assistant for senior citizens in 24 hours using Python, Claude, and Devin.",
+            "Automated basic computer tasks to help seniors use technology more independently.",
+            "Created a caregiver dashboard for reviewing and prioritizing assistance requests.",
+        ],
+        skills: [Skill.Python, Skill.AgenticAI, Skill.APIs, Skill.Claude],
+        githubLink: "https://github.com/tendly-ai/tendly",
+    },
+    {
         name: "UA AI Studio",
         description: "HackArizona 2026 project building a course-specific RAG assistant backend",
         details: [

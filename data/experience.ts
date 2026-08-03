@@ -2,6 +2,7 @@ export enum Skill {
   AgenticAI = "Agentic AI",
   APIs = "APIs",
   Caching = "Caching",
+  Claude = "Claude",
   DataVisualization = "Data Visualization",
   Deployment = "Deployment",
   ETL = "ETL",
