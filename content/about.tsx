@@ -2,7 +2,7 @@ import { InlineAccentLink } from "@/components/AccentLink";
 
 export const ABOUT_INTRO = (
   <>
-    Hello! I'm Seth Rojas, a 3rd Year Computer Science student at the 
+    Hello! I&apos;m Seth Rojas, a 3rd Year Computer Science student at the
 		{" "}
     <InlineAccentLink
       text="University of Arizona"
@@ -17,11 +17,11 @@ export const ABOUT_INTRO = (
       href="https://arizonawildcats.com"
     />.
     {"\n\n"}
-    This summer, I am interning as a Software Development Engineer on the{" "}
+    This summer, I interned as a Software Development Engineer on the{" "}
     <InlineAccentLink
-      text="IBM Storage CTO's team"
-      href="https://www.ibm.com/products/storage"
-    />.
+      text="IBM Storage CTO's Office"
+      href="https://community.ibm.com/community/user/blogs/anthony-hsu/2026/08/13/lisa-the-llm-infrastructure-sizing-agent"
+    /> team.
   </>
 );
 

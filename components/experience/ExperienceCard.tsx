@@ -1,9 +1,10 @@
-import { Skill } from "@/data/experience";
+import { ExperienceDetail, Skill } from "@/data/experience";
 import { colors } from "@/theme/color";
 import { FONT_SIZE } from "@/theme/font";
 import { StyleSheet, View } from "react-native";
 import { useState } from "react";
 import AppText from "../AppText";
+import { InlineAccentLink } from "../AccentLink";
 import SkillCard from "./SkillCard";
 import { globalStyles } from "@/theme/styles";
 import DetailsToggle from "../DetailsToggle";
@@ -14,10 +15,20 @@ type ExpereinceCardProps = {
   position: string
   company: string
   dates: string
-  summary: string
-  details: string[]
+  summary: ExperienceDetail
+  details: ExperienceDetail[]
   skills: Skill[]
 };
+
+function renderExperienceText(text: ExperienceDetail) {
+  return typeof text === "string"
+    ? text
+    : text.map((part, index) =>
+        typeof part === "string" ? part : (
+          <InlineAccentLink key={index} text={part.text} href={part.href} />
+        )
+      );
+}
 
 export default function ExperienceCard(
   {position, company, dates, summary, details, skills} : ExpereinceCardProps
@@ -64,7 +75,7 @@ export default function ExperienceCard(
       <View style={styles.expInfoContainer}>
 
         <AppText style={styles.summaryText}>
-          {summary}
+          {renderExperienceText(summary)}
         </AppText>
 
         <View style={globalStyles.skillsRow}>
@@ -79,11 +90,11 @@ export default function ExperienceCard(
 
       <AnimatedDetails isExpanded={isExpanded}>
         <View style={styles.detailsContainer}>
-          {details.map((detail) => (
-            <View key={detail} style={styles.detailRow}>
+          {details.map((detail, detailIndex) => (
+            <View key={detailIndex} style={styles.detailRow}>
               <AppText style={styles.bulletText}>•</AppText>
               <AppText style={styles.detailText}>
-                {detail}
+                {renderExperienceText(detail)}
               </AppText>
             </View>
           ))}

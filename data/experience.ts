@@ -2,7 +2,9 @@ export enum Skill {
   AgenticAI = "Agentic AI",
   APIs = "APIs",
   Caching = "Caching",
+  Claude = "Claude",
   DataVisualization = "Data Visualization",
+  Deployment = "Deployment",
   ETL = "ETL",
   FastAPI = "FastAPI",
   GoogleCloud = "Google Cloud",
@@ -28,32 +30,47 @@ export enum Skill {
   TypeScript = "TypeScript",
 }
 
+export type ExperienceDetail = string | (string | { text: string; href: string })[];
+
 export type Experience = {
   position: string;
   company: string;
   dates: string;
-  summary: string;
-  details: string[];
+  summary: ExperienceDetail;
+  details: ExperienceDetail[];
   skills: Skill[];
 };
 
+const IBM_BLOG_URL =
+  "https://community.ibm.com/community/user/blogs/anthony-hsu/2026/08/13/lisa-the-llm-infrastructure-sizing-agent";
+
 export const experiences: Experience[] = [
   {
-    position: "Software Development Intern",
-    company: "IBM Storage",
-    dates: "May 2026 - Present",
-    summary:
-      "Built an agentic AI infrastructure key-value inference cache flow and presented to IBM Fellows and Senior VPs.",
+    position: "Software Development Engineer Intern",
+    company: "IBM Storage CTO's Office",
+    dates: "May 2026 - August 2026",
+    summary: [
+      "Built an AI infrastructure advisor to be demoed at NVIDIA GTC Berlin. Co-authored IBM-published ",
+      { text: "blog", href: IBM_BLOG_URL },
+      ".",
+    ],
     details: [
-      "Designed an agentic AI inference-cache flow for infrastructure key-value workloads.",
-      "Presented the technical direction and prototype to IBM Fellows and Senior VPs.",
-      "Focused on reducing repeated inference work through reusable cache-aware system design.",
+      "Developed a Python agent that recommends distributed inference environments.",
+      "Synthesize simulations into enterprise recommendations using LLMs in under seven minutes.",
+      [
+        "Demoed to eight IBM researchers, co-authored an IBM-published ",
+        {
+          text: "blog",
+          href: IBM_BLOG_URL,
+        },
+        ", and presented AI topics to senior technical leaders.",
+      ],
     ],
     skills: [
       Skill.AgenticAI,
       Skill.Python,
-      Skill.Infrastructure,
-      Skill.Caching,
+      Skill.Deployment,
+      Skill.APIs,
       Skill.TechnicalCommunication,
     ],
   },
