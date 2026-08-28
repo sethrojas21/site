@@ -30,26 +30,41 @@ export enum Skill {
   TypeScript = "TypeScript",
 }
 
+export type ExperienceDetail = string | (string | { text: string; href: string })[];
+
 export type Experience = {
   position: string;
   company: string;
   dates: string;
-  summary: string;
-  details: string[];
+  summary: ExperienceDetail;
+  details: ExperienceDetail[];
   skills: Skill[];
 };
+
+const IBM_BLOG_URL =
+  "https://community.ibm.com/community/user/blogs/anthony-hsu/2026/08/13/lisa-the-llm-infrastructure-sizing-agent";
 
 export const experiences: Experience[] = [
   {
     position: "Software Development Engineer Intern",
     company: "IBM Storage CTO's Office",
     dates: "May 2026 - Present",
-    summary:
-      "Built an AI infrastructure advisor to be demoed at NVIDIA GTC Berlin.",
+    summary: [
+      "Built an AI infrastructure advisor to be demoed at NVIDIA GTC Berlin. Co-authored IBM-published ",
+      { text: "blog", href: IBM_BLOG_URL },
+      ".",
+    ],
     details: [
       "Developed a Python agent that recommends distributed inference environments.",
       "Synthesize simulations into enterprise recommendations using LLMs in under seven minutes.",
-      "Demoed to eight IBM researchers, authored an IBM blog, and presented AI topics to senior technical leaders.",
+      [
+        "Demoed to eight IBM researchers, co-authored an IBM-published ",
+        {
+          text: "blog",
+          href: IBM_BLOG_URL,
+        },
+        ", and presented AI topics to senior technical leaders.",
+      ],
     ],
     skills: [
       Skill.AgenticAI,
