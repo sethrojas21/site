@@ -48,7 +48,7 @@ export const experiences: Experience[] = [
   {
     position: "Software Development Engineer Intern",
     company: "IBM Storage CTO's Office",
-    dates: "May 2026 - Present",
+    dates: "May 2026 - August 2026",
     summary: [
       "Built an AI infrastructure advisor to be demoed at NVIDIA GTC Berlin. Co-authored IBM-published ",
       { text: "blog", href: IBM_BLOG_URL },
